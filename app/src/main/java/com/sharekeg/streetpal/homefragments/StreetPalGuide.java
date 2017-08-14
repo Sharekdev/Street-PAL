@@ -229,45 +229,33 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         chatMessages.add(message);
 
 
-        final Handler timerHandler;
-        timerHandler = new Handler();
-
-        Runnable timerRunnable = new Runnable() {
+        //  update  adapter data
+        guideChatList.postDelayed(new Runnable() {
             @Override
             public void run() {
-                //  update  adapter data
-                guideChatList.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
-                    }
-                }, 500);
-                guideChatList.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-                    @Override
-                    public void onLayoutChange(View v,
-                                               int left, int top, int right, int bottom,
-                                               int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                        if (bottom < oldBottom) {
-                            guideChatList.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
-                                }
-                            }, 100);
-                        }
-                    }
-                });
-
-
-                adapter.notifyDataSetChanged();
-                timerHandler.postDelayed(this, 2000); //run every  2 seconds
+                guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
             }
-        };
+        }, 500);
+        guideChatList.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v,
+                                       int left, int top, int right, int bottom,
+                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                if (bottom < oldBottom) {
+                    guideChatList.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
+                        }
+                    }, 2000);
+                }
+            }
+        });
 
-        timerHandler.postDelayed(timerRunnable, 2000);
 
-
+        adapter.notifyDataSetChanged();
     }
-
-
 }
+
+
+
