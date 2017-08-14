@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -38,18 +39,17 @@ import ir.mirrajabi.viewfilter.renderers.BlurRenderer;
  * Created by MMenem on 8/2/2017.
  */
 
-public class StreetPalGuide extends Fragment implements View.OnClickListener {
+public class StreetPalGuide extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
 
 
-    private TextView firstChoice, secondChoice, thirdChoice;
-
+    public LinearLayoutManager mLinearLayoutManager;
     UserGuide userGuide;
     ChatAdapter adapter;
     List<ChatMessage> chatMessages = new ArrayList<>();
     int positiveButtonID, negativeButtonID, neutralButtonID;
-    public LinearLayoutManager mLinearLayoutManager;
     RecyclerView guideChatList;
     RelativeLayout homeActivity;
+    private TextView firstChoice, secondChoice, thirdChoice;
     private LinearLayout infoLayout;
     private RelativeLayout UpperBarlayoutId;
 
@@ -86,7 +86,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         thirdChoice.setOnClickListener(this);
 
 
-        guideChatList.setLayoutManager(mLinearLayoutManager);
+        guideChatList.setLayoutManager(new LinearLayoutManager(getContext()));
 //        mLinearLayoutManager.setStackFromEnd(true);
 
         userGuide = new UserGuide();
@@ -113,7 +113,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
                 //navigate to whatever you want
                 showNearstSafePlace();
 
-                Toast.makeText(getContext(), "Call for help", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Call for help", Toast.LENGTH_SHORT).show();
             } else if (positiveButtonID == -2) {
 
                 getActivity().onBackPressed();
@@ -181,8 +181,8 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
                 thirdChoice.setText(chatMessage.getNeutralButtonText());
                 break;
             case 2:
-                firstChoice.setText("Yes");
-                secondChoice.setText("No");
+                firstChoice.setText(chatMessage.getPositiveButtonText());
+                secondChoice.setText(chatMessage.getNegativeButtonText());
                 // firstChoice.setGravity(Gravity.CENTER);
                 thirdChoice.setVisibility(View.GONE);
                 break;
@@ -226,4 +226,8 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
     }
 
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
 }

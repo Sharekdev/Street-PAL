@@ -26,6 +26,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
+    View focusView = null;
     private EditText etUsername, etPassword;
     private Button btLogin;
     private TextView tvSignUp;
@@ -33,8 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     private String password;
     private String token;
     private ProgressDialog pDialog;
-    View focusView = null;
-
 
     @Override
     public void onBackPressed() {
@@ -152,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
     private ApiInterface getInterfaceService() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://sharekeg.com:8088/v0/")
+                .baseUrl("http://sharekeg.com:8088/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         final ApiInterface mInterfaceService = retrofit.create(ApiInterface.class);
