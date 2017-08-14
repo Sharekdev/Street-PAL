@@ -52,6 +52,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
     RelativeLayout homeActivity;
     private LinearLayout infoLayout;
     private RelativeLayout UpperBarlayoutId;
+    private LinearLayoutManager mLinearLayoutManager;
 
 
     public StreetPalGuide() {
@@ -63,8 +64,14 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View streetPalGuideView = inflater.inflate(R.layout.fragment_street_pal_guide, container, false);
         //Initialize the recycle view
+
+
         guideChatList = (RecyclerView) streetPalGuideView.findViewById(R.id.chatList);
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        guideChatList.setLayoutManager(mLinearLayoutManager);
+        mLinearLayoutManager.setStackFromEnd(true);
         guideChatList.setHasFixedSize(true);
+
 
         //Access the items of Parent Activity
         homeActivity = (RelativeLayout) getActivity().findViewById(R.id.activity_home);
@@ -85,8 +92,6 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         secondChoice.setOnClickListener(this);
         thirdChoice.setOnClickListener(this);
 
-
-        guideChatList.setLayoutManager(new LinearLayoutManager(getContext()));
 //        mLinearLayoutManager.setStackFromEnd(true);
 
         userGuide = new UserGuide();
@@ -231,6 +236,29 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
             @Override
             public void run() {
                 //  update  adapter data
+                guideChatList.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
+                    }
+                }, 500);
+                guideChatList.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                    @Override
+                    public void onLayoutChange(View v,
+                                               int left, int top, int right, int bottom,
+                                               int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                        if (bottom < oldBottom) {
+                            guideChatList.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
+                                }
+                            }, 100);
+                        }
+                    }
+                });
+
+
                 adapter.notifyDataSetChanged();
                 timerHandler.postDelayed(this, 2000); //run every  2 seconds
             }
