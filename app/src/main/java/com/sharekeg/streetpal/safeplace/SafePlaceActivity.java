@@ -568,6 +568,13 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
         }
     }
 
+
+
+    @Override
+    public void onBackPressed() {
+        // do nothing.
+    }
+
 }
 
 

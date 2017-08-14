@@ -90,4 +90,11 @@ public class SelectTrustedContactsActivity2 extends AppCompatActivity {
         });
 
     }
+
+
+
+    @Override
+    public void onBackPressed() {
+        // do nothing.
+    }
 }

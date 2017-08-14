@@ -93,4 +93,11 @@ public class SplashScreen extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
+
+
+
+    @Override
+    public void onBackPressed() {
+        // do nothing.
+    }
 }

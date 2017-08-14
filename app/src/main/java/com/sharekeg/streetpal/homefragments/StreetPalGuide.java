@@ -1,25 +1,23 @@
 package com.sharekeg.streetpal.homefragments;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
+
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,9 +29,10 @@ import com.sharekeg.streetpal.safeplace.SafePlaceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+
+import ir.mirrajabi.viewfilter.core.ViewFilter;
+import ir.mirrajabi.viewfilter.renderers.BlurRenderer;
+
 
 /**
  * Created by MMenem on 8/2/2017.
@@ -49,8 +48,11 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
     List<ChatMessage> chatMessages = new ArrayList<>();
     int positiveButtonID, negativeButtonID, neutralButtonID;
     public LinearLayoutManager mLinearLayoutManager;
-
     RecyclerView guideChatList;
+    RelativeLayout homeActivity;
+    private LinearLayout infoLayout;
+    private RelativeLayout UpperBarlayoutId;
+
 
     public StreetPalGuide() {
     }
@@ -64,17 +66,21 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         guideChatList = (RecyclerView) streetPalGuideView.findViewById(R.id.chatList);
         guideChatList.setHasFixedSize(true);
 
+        //Access the items of Parent Activity
+        homeActivity = (RelativeLayout) getActivity().findViewById(R.id.activity_home);
+        UpperBarlayoutId = (RelativeLayout) getActivity().findViewById(R.id.UpperBarlayoutId);
 
-//        ColorDrawable cd = new ColorDrawable(getActivity().getResources().getColor(
-//                R.color.black));
-//
-//        getActivity().getWindow().getContainer().setContentView(R.layout.disabled_layout_for_chat);
+//        ViewFilter.getInstance(getContext())
+//                .setRenderer(new BlurRenderer(16))
+//                .applyFilterOnView(infoLayout, homeActivity);
+
 
         //find the TextViews (Choices)
-
         firstChoice = (TextView) streetPalGuideView.findViewById(R.id.user_first_choice);
         secondChoice = (TextView) streetPalGuideView.findViewById(R.id.user_second_choice);
         thirdChoice = (TextView) streetPalGuideView.findViewById(R.id.user_third_choice);
+
+
         firstChoice.setOnClickListener(this);
         secondChoice.setOnClickListener(this);
         thirdChoice.setOnClickListener(this);
@@ -218,5 +224,6 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         chatMessages.add(message);
         adapter.notifyDataSetChanged();
     }
+
 
 }

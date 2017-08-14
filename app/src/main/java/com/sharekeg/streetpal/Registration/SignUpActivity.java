@@ -44,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     private Button btnSignUp, btn_UploadNationalCard;
     Retrofit retrofit;
     private Spinner spinner;
-    private String name,email, userName, phone, age, nationalId, gender, work, password;
+    private String name, email, userName, phone, age, nationalId, gender, work, password;
     View focusView = null;
     ApiInterface apiInterface;
     private ProgressDialog pDialog;
@@ -71,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                 .build();
         etEmail = (EditText) findViewById(R.id.etemail);
         etAge = (EditText) findViewById(R.id.etage);
-        etName=(EditText)findViewById(R.id.etName);
+        etName = (EditText) findViewById(R.id.etName);
         etWork = (EditText) findViewById(R.id.etWork);
         etPassword = (EditText) findViewById(R.id.TV_passward);
         etUserName = (EditText) findViewById(R.id.etuserName);
@@ -201,12 +201,12 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     private boolean signupValidation() {
-        name=etName.getText().toString();
+        name = etName.getText().toString();
         userName = etUserName.getText().toString();
         password = etPassword.getText().toString();
         email = etEmail.getText().toString();
         phone = etPhone.getText().toString();
-        gender=TV_sex.getText().toString();
+        gender = TV_sex.getText().toString();
         age = etAge.getText().toString();
         nationalId = etNationalId.getText().toString();
         work = etWork.getText().toString();
@@ -271,10 +271,10 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
 
-    private void insertNewUser(final String name,final String email, final String userName, final String age, final String nationalId, final String work, String password, final String phone, final String gender) {
+    private void insertNewUser(final String name, final String email, final String userName, final String age, final String nationalId, final String work, String password, final String phone, final String gender) {
 
         ApiInterface mApi = retrofit.create(ApiInterface.class);
-        Call<UsersInfoForSignUp> mycall = mApi.insertUserinfo(new UsersInfoForSignUp(name,email, userName, phone, age, nationalId, gender, work, password));
+        Call<UsersInfoForSignUp> mycall = mApi.insertUserinfo(new UsersInfoForSignUp(name, email, userName, phone, age, nationalId, gender, work, password));
         mycall.enqueue(new Callback<UsersInfoForSignUp>() {
             @Override
             public void onResponse(Call<UsersInfoForSignUp> call, Response<UsersInfoForSignUp> response) {
@@ -461,5 +461,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        // do nothing.
+    }
 }

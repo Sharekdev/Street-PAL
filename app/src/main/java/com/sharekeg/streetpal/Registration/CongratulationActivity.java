@@ -24,4 +24,12 @@ public class CongratulationActivity extends AppCompatActivity {
             }
         }, 2000);
     }
+
+
+
+    @Override
+    public void onBackPressed() {
+        // do nothing.
+    }
+
 }

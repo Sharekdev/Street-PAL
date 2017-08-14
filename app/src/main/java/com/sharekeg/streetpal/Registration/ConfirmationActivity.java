@@ -63,5 +63,8 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        // do nothing.
+    }
 }

@@ -51,15 +51,7 @@ public class HomeActivity extends AppCompatActivity implements MapTab.OnFragment
     Button icmap,ichome,icgiude;
    private  String userName = "Welcome Mohamed!";
 
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)
-        {
-            this.moveTaskToBack(true);
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -188,15 +180,7 @@ public class HomeActivity extends AppCompatActivity implements MapTab.OnFragment
     }
 
 
-    @Override
-    public void onBackPressed() {
-        if (!(getSupportFragmentManager()
-                .findFragmentById(R.id.rlFragments)
-                instanceof HomeTab)) {
-            openHomeTab();
-        } else
-            super.onBackPressed();
-    }
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -305,6 +289,11 @@ public class HomeActivity extends AppCompatActivity implements MapTab.OnFragment
         }
     }
 
+
+    @Override
+    public void onBackPressed() {
+        // do nothing.
+    }
 
 }
 
