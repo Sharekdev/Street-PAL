@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 
@@ -222,7 +223,23 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
 
     private void displayNewMessage(ChatMessage message) {
         chatMessages.add(message);
-        adapter.notifyDataSetChanged();
+
+
+        final Handler timerHandler;
+        timerHandler = new Handler();
+
+        Runnable timerRunnable = new Runnable() {
+            @Override
+            public void run() {
+                //  update  adapter data
+                adapter.notifyDataSetChanged();
+                timerHandler.postDelayed(this, 2000); //run every  2 seconds
+            }
+        };
+
+        timerHandler.postDelayed(timerRunnable, 2000);
+
+
     }
 
 
