@@ -20,8 +20,10 @@ public class ChatMessage {
         this.isUserMessage = false;
     }
 
-    public ChatMessage(String messageText, int positiveButtonId, int negativeButtonId) {
+    public ChatMessage(String messageText, String positiveButtonText, String negativeButtonText, int positiveButtonId, int negativeButtonId) {
         this.messageText = messageText;
+        this.positiveButtonText = positiveButtonText;
+        this.negativeButtonText = negativeButtonText;
         this.optionsCount = 2;
         this.positiveButtonId = positiveButtonId;
         this.negativeButtonId = negativeButtonId;

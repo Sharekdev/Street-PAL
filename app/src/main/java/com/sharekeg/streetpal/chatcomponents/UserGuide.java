@@ -32,7 +32,7 @@ public class UserGuide {
                         , context.getResources().getText(R.string.user_guide_case_2).toString(),context.getResources().getText(R.string.user_guide_neutral_button).toString(), USER_FEELS_FOLLOWED, SEND_STRESS_SIGNAL, KNOW_MORE);
                 break;
             case USER_FEELS_FOLLOWED:
-                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion1).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, SEND_STRESS_SIGNAL);
+                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion1).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, SEND_STRESS_SIGNAL);
                 break;
             case USER_FEELS_IN_DANGER:
                 //will be implemented soon
@@ -42,7 +42,7 @@ public class UserGuide {
 
                 break;
             case USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE:
-                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion2).toString(), USER_IS_SAFE, SEND_STRESS_SIGNAL);
+                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion2).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), USER_IS_SAFE, SEND_STRESS_SIGNAL);
                 break;
             case USER_IS_SAFE:
                 chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_user_safe).toString(),false);

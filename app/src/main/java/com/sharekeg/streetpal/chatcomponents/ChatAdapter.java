@@ -46,13 +46,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
 //        Log.i("Message_adapter",ChatMessage.get(position).toString());
         if (ChatMessage.get(position).isUserMessage()) {
             holder.streetPalLogo.setVisibility(View.GONE);
-            holder.userChatLogo.setVisibility(View.VISIBLE);
-            holder.tvMessageRec.setGravity(RelativeLayout.ALIGN_PARENT_RIGHT);
-            //  holder.tvMessageRec.setBackgroundColor(Color.parseColor("#ffffff"));
-            //  holder.tvMessageRec.setBackgroundColor();
-            //  holder.tvMessageRec.setGravity(RelativeLayout.ALIGN_PARENT_END);
-//           holder.tvMessageRec.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.ALIGN_PARENT_RIGHT));
-
+            holder.tvMessageRec.setVisibility(View.GONE);
+//            holder.userChatLogo.setVisibility(View.VISIBLE);
+//            holder.tvMessageRec.setGravity(RelativeLayout.ALIGN_PARENT_RIGHT);
+            holder.userMessage.setText(ChatMessage.get(position).getMessageText());
+            holder.userMessage.setVisibility(View.VISIBLE);
+        } else {
+            holder.userMessage.setVisibility(View.GONE);
+            holder.tvMessageRec.setText(ChatMessage.get(position).getMessageText());
+            holder.streetPalLogo.setVisibility(View.VISIBLE);
+            holder.tvMessageRec.setVisibility(View.VISIBLE);
 
         }
 
@@ -65,13 +68,14 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
 
     public class chatHolder extends RecyclerView.ViewHolder {
 
-        TextView tvMessageRec;
+        TextView tvMessageRec, userMessage;
         ImageView streetPalLogo, userChatLogo;
 
         public chatHolder(View itemView) {
             super(itemView);
             tvMessageRec = (TextView) itemView.findViewById(R.id.tvmessage_send);
             streetPalLogo = (ImageView) itemView.findViewById(R.id.logo_street_pal);
+            userMessage = (TextView) itemView.findViewById(R.id.tvmessage_user_text);
             //  userChatLogo = (ImageView) itemView.findViewById(R.id.logo_chat_user);
 
         }

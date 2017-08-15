@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,20 +40,19 @@ import ir.mirrajabi.viewfilter.renderers.BlurRenderer;
  * Created by MMenem on 8/2/2017.
  */
 
-public class StreetPalGuide extends Fragment implements View.OnClickListener {
+public class StreetPalGuide extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
 
 
-    private TextView firstChoice, secondChoice, thirdChoice;
-
+    public LinearLayoutManager mLinearLayoutManager;
     UserGuide userGuide;
     ChatAdapter adapter;
     List<ChatMessage> chatMessages = new ArrayList<>();
     int positiveButtonID, negativeButtonID, neutralButtonID;
     RecyclerView guideChatList;
     RelativeLayout homeActivity;
+    private TextView firstChoice, secondChoice, thirdChoice;
     private LinearLayout infoLayout;
     private RelativeLayout UpperBarlayoutId;
-    private LinearLayoutManager mLinearLayoutManager;
 
 
     public StreetPalGuide() {
@@ -64,14 +64,8 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View streetPalGuideView = inflater.inflate(R.layout.fragment_street_pal_guide, container, false);
         //Initialize the recycle view
-
-
         guideChatList = (RecyclerView) streetPalGuideView.findViewById(R.id.chatList);
-        mLinearLayoutManager = new LinearLayoutManager(getContext());
-        guideChatList.setLayoutManager(mLinearLayoutManager);
-        mLinearLayoutManager.setStackFromEnd(true);
         guideChatList.setHasFixedSize(true);
-
 
         //Access the items of Parent Activity
         homeActivity = (RelativeLayout) getActivity().findViewById(R.id.activity_home);
@@ -92,6 +86,8 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         secondChoice.setOnClickListener(this);
         thirdChoice.setOnClickListener(this);
 
+
+        guideChatList.setLayoutManager(new LinearLayoutManager(getContext()));
 //        mLinearLayoutManager.setStackFromEnd(true);
 
         userGuide = new UserGuide();
@@ -118,7 +114,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
                 //navigate to whatever you want
                 showNearstSafePlace();
 
-                Toast.makeText(getContext(), "Call for help", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Call for help", Toast.LENGTH_SHORT).show();
             } else if (positiveButtonID == -2) {
 
                 getActivity().onBackPressed();
@@ -186,8 +182,8 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
                 thirdChoice.setText(chatMessage.getNeutralButtonText());
                 break;
             case 2:
-                firstChoice.setText("Yes");
-                secondChoice.setText("No");
+                firstChoice.setText(chatMessage.getPositiveButtonText());
+                secondChoice.setText(chatMessage.getNegativeButtonText());
                 // firstChoice.setGravity(Gravity.CENTER);
                 thirdChoice.setVisibility(View.GONE);
                 break;
@@ -229,33 +225,26 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         chatMessages.add(message);
 
 
-        //  update  adapter data
-        guideChatList.postDelayed(new Runnable() {
+        final Handler timerHandler;
+        timerHandler = new Handler();
+
+        Runnable timerRunnable = new Runnable() {
             @Override
             public void run() {
-                guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
+                //  update  adapter data
+                adapter.notifyDataSetChanged();
+                timerHandler.postDelayed(this, 2000); //run every  2 seconds
             }
-        }, 500);
-        guideChatList.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v,
-                                       int left, int top, int right, int bottom,
-                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                if (bottom < oldBottom) {
-                    guideChatList.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            guideChatList.smoothScrollToPosition(guideChatList.getAdapter().getItemCount() - 1);
-                        }
-                    }, 2000);
-                }
-            }
-        });
+        };
+
+        timerHandler.postDelayed(timerRunnable, 2000);
 
 
-        adapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }
-
-
-
