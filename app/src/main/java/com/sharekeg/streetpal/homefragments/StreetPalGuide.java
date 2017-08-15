@@ -91,7 +91,11 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
 //        mLinearLayoutManager.setStackFromEnd(true);
 
         userGuide = new UserGuide();
-        ChatMessage chatMessage = userGuide.guideUserToSafety(UserGuide.USER_CALLS_HELP, getContext());
+        int id = 0;
+        if (getArguments() != null) {
+            id = getArguments().getInt("userCase");
+        }
+        ChatMessage chatMessage = userGuide.guideUserToSafety(id, getContext());
         chatMessages.add(chatMessage);
         manageOptionsDisplay(chatMessage);
         setButtonsIDs(chatMessage);

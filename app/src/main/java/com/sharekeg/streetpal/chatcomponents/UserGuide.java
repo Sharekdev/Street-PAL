@@ -17,6 +17,7 @@ public class UserGuide {
             USER_HAS_BEEN_HARASSED = 3,
             USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE = 4,
             USER_IS_FOLLOWED_SURROUNDINGS_ARE_NOT_SAFE = 5,
+            DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE = 6,
             SEND_STRESS_SIGNAL = 1000,
             USER_IS_SAFE = 1001,
             KNOW_MORE = -5;
@@ -32,7 +33,7 @@ public class UserGuide {
                         , context.getResources().getText(R.string.user_guide_case_2).toString(),context.getResources().getText(R.string.user_guide_neutral_button).toString(), USER_FEELS_FOLLOWED, SEND_STRESS_SIGNAL, KNOW_MORE);
                 break;
             case USER_FEELS_FOLLOWED:
-                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion1).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, SEND_STRESS_SIGNAL);
+                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion1).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), context.getResources().getText(R.string.user_guide_agnostic_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, SEND_STRESS_SIGNAL, DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE);
                 break;
             case USER_FEELS_IN_DANGER:
                 //will be implemented soon
@@ -40,6 +41,9 @@ public class UserGuide {
             case USER_HAS_BEEN_HARASSED:
                 //go to gide for now
 
+                break;
+            case DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE:
+                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_not_know_sorroundings).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, SEND_STRESS_SIGNAL);
                 break;
             case USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE:
                 chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion2).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), USER_IS_SAFE, SEND_STRESS_SIGNAL);

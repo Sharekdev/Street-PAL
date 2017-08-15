@@ -221,6 +221,7 @@
     <!--____________________________ User guide ______________________-->
     <string name="user_guide_postive_button">Yes</string>
     <string name="user_guide_negative_button">No</string>
+    <string name="user_guide_agnostic_button">I do not know</string>
     <string name="user_guide_neutral_button">I have been sexually harassed </string>
     <string name="user_guide_question_1">Hey,I am your street pal. \n  What is wrong?</string>
     <string name="user_guide_case_1">I think I am being followed by someone</string>
@@ -237,6 +238,7 @@
     <string name="user_guide_button_know_more">We will navigate you to full guide, Tap <b>Go To Guide</b> below</string>
     <string name="user_guide_button_go_to_guide">Go To Guide</string>
     <string name="user_guide_user_not_safe">We are going to send an alert to your trusted contacts to notify them about your situation, Tap <b>Go to map</b> button to select a safe place and navigate to it</string>
+    <string name="user_guide_not_know_sorroundings">Study your surroundings and scan for people who might help or places you might seek for shelter. If you are not in an isolated space and you believe there are people around that might help click YES, if not click NO</string>
 
 
 </resources>

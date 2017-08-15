@@ -26,6 +26,7 @@ import android.widget.TextView;
 import com.sharekeg.streetpal.Androidversionapi.ApiInterface;
 import com.sharekeg.streetpal.Home.HomeActivity;
 import com.sharekeg.streetpal.R;
+import com.sharekeg.streetpal.chatcomponents.UserGuide;
 import com.sharekeg.streetpal.safeplace.SafePlaceActivity;
 import com.sharekeg.streetpal.userinfoforlogin.CurrenLocation;
 
@@ -39,6 +40,10 @@ import retrofit2.Retrofit;
  */
 public class HomeTab extends Fragment implements View.OnClickListener {
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+    AlertDialog alert;
+    Retrofit retrofit;
+    AlertDialog Dilaog;
+    Bundle bundle = new Bundle();
     private ImageView imageView1, imageView2, imageView3;
     private View myFragmentView;
     private TextView tvWelcomeUser, tvHint, textView1, textView2, textView3;
@@ -48,10 +53,7 @@ public class HomeTab extends Fragment implements View.OnClickListener {
     private double lat;
     private StreetPalGuide streetPalGuide;
     private double lon;
-    AlertDialog alert;
     private EditText etName;
-    Retrofit retrofit;
-    AlertDialog Dilaog;
     private RelativeLayout firstCardLayout, secondCardLayout, thirdCardLayout;
 
     public HomeTab() {
@@ -92,6 +94,7 @@ public class HomeTab extends Fragment implements View.OnClickListener {
         //Starting the street pal fragment when user click call for help button
 
         StreetPalGuide streetPalGuideFragment = new StreetPalGuide();
+        streetPalGuideFragment.setArguments(bundle);
         this.getFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.rlFragments, streetPalGuideFragment)
@@ -109,10 +112,12 @@ public class HomeTab extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.first_card:
+                bundle.putInt("userCase", UserGuide.USER_FEELS_FOLLOWED);
                 startStreetPalGuide();
 
                 break;
             case R.id.second_card:
+                bundle.putInt("userCase", UserGuide.SEND_STRESS_SIGNAL);
                 startStreetPalGuide();
 
                 break;
