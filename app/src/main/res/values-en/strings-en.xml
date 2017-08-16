@@ -227,12 +227,11 @@
     <string name="user_guide_case_1">I think I am being followed by someone</string>
     <string name="user_guide_case_2">I am being harassed now!</string>
     <string name="user_guide_case_1_qustion1">Do your surroundings feel safe? Do you think people around you might help?</string>
-    <string name="user_guide_case_1_qustion2"> - Confront the possible threat and establish eye contact. \n
- - Remember your voice is a very powerful weapon, so use it more. \n
- - You can inquire in a direct and firm tone by asking: “Is something wrong? - You keep looking at me, do I know you?” \n
- - Remember, your safety comes first. You DO NOT have to do anything that might endanger you. \n
-
-        Are you safe now?</string>
+    <string name="user_guide_case_1_part1">Confront the possible threat and establish eye contact</string>
+    <string name="user_guide_case_1_part2">Remember your voice is a very powerful weapon, so use it more</string>
+    <string name="user_guide_case_1_part3">You can inquire in a direct and firm tone by asking: “Is something wrong? - You keep looking at me, do I know you?</string>
+    <string name="user_guide_case_1_part4">Remember, your safety comes first. You DO NOT have to do anything that might endanger you.</string>
+    <string name="user_guide_case_1_part5">Are you safe now?</string>
     <string name="user_guide_user_safe">We are glad you are safe and sound</string>
     <string name="user_guide_button_map">Go to map</string>
     <string name="user_guide_button_know_more">We will navigate you to full guide, Tap <b>Go To Guide</b> below</string>

@@ -25,8 +25,10 @@ import android.widget.Toast;
 
 import com.sharekeg.streetpal.R;
 import com.sharekeg.streetpal.chatcomponents.ChatAdapter;
+import com.sharekeg.streetpal.chatcomponents.ChatBlock;
 import com.sharekeg.streetpal.chatcomponents.ChatMessage;
 import com.sharekeg.streetpal.chatcomponents.UserGuide;
+import com.sharekeg.streetpal.chatcomponents.UserOptions;
 import com.sharekeg.streetpal.safeplace.SafePlaceActivity;
 
 import java.util.ArrayList;
@@ -95,11 +97,13 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
         if (getArguments() != null) {
             id = getArguments().getInt("userCase");
         }
-        ChatMessage chatMessage = userGuide.guideUserToSafety(id, getContext());
-        chatMessages.add(chatMessage);
-        manageOptionsDisplay(chatMessage);
-        setButtonsIDs(chatMessage);
-        Log.i("First_message", chatMessage.toString());
+        ChatBlock chatBlock = userGuide.guideUserToSafety(id, getContext());
+
+        for (int i = 0; i < chatBlock.getChatMessages().size(); i++) {
+            chatMessages.add(chatBlock.getChatMessages().get(i));
+        }
+        manageOptionsDisplay(chatBlock.getUserOptions());
+        setButtonsIDs(chatBlock.getUserOptions());
         // Initialize the adapter for the messages
 
         adapter = new ChatAdapter(getActivity(), chatMessages);
@@ -114,53 +118,30 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
     public void onClick(View v) {
         if (v == firstChoice) {
             Log.i("Button_ID_selected", String.valueOf(positiveButtonID));
-            if (positiveButtonID == -1) {
-                //navigate to whatever you want
-                showNearstSafePlace();
+            ChatMessage userMessage = new ChatMessage(firstChoice.getText().toString(), true);
+            displayNewMessage(userMessage);
+            ChatBlock newChatBlock = userGuide.guideUserToSafety(positiveButtonID, getContext());
+            manageOptionsDisplay(newChatBlock.getUserOptions());
+            setButtonsIDs(newChatBlock.getUserOptions());
+            displayNewMessage(newChatBlock.getChatMessages());
 
-//                Toast.makeText(getContext(), "Call for help", Toast.LENGTH_SHORT).show();
-            } else if (positiveButtonID == -2) {
-
-                getActivity().onBackPressed();
-                // Toast.makeText(getContext(), "Close", Toast.LENGTH_SHORT).show();
-            } else if (positiveButtonID == -5) {
-
-                startGuideFragment();
-
-                // Toast.makeText(getContext(), "Guide", Toast.LENGTH_SHORT).show();
-            } else {
-                ChatMessage userMessage = new ChatMessage(firstChoice.getText().toString(), true);
-                Log.i("Following_message", userMessage.toString());
-                displayNewMessage(userMessage);
-                ChatMessage newChatMessage = userGuide.guideUserToSafety(positiveButtonID, getContext());
-                Log.i("Following_message", newChatMessage.toString());
-                manageOptionsDisplay(newChatMessage);
-                setButtonsIDs(newChatMessage);
-                displayNewMessage(newChatMessage);
-            }
 
         } else if (v == secondChoice) {
             Log.i("Button_ID_selected", String.valueOf(negativeButtonID));
             ChatMessage userMessage = new ChatMessage(secondChoice.getText().toString(), true);
-            Log.i("Following_message", userMessage.toString());
             displayNewMessage(userMessage);
-
-            ChatMessage newChatMessage = userGuide.guideUserToSafety(negativeButtonID, getContext());
-            Log.i("Following_message", newChatMessage.toString());
-            manageOptionsDisplay(newChatMessage);
-            setButtonsIDs(newChatMessage);
-            displayNewMessage(newChatMessage);
+            ChatBlock newChatBlock = userGuide.guideUserToSafety(negativeButtonID, getContext());
+            manageOptionsDisplay(newChatBlock.getUserOptions());
+            setButtonsIDs(newChatBlock.getUserOptions());
+            displayNewMessage(newChatBlock.getChatMessages());
         } else if (v == thirdChoice) {
             Log.i("Button_ID_selected", String.valueOf(neutralButtonID));
             ChatMessage userMessage = new ChatMessage(thirdChoice.getText().toString(), true);
-            Log.i("Following_message", userMessage.toString());
             displayNewMessage(userMessage);
-
-            ChatMessage newChatMessage = userGuide.guideUserToSafety(neutralButtonID, getContext());
-            Log.i("Following_message", newChatMessage.toString());
-            manageOptionsDisplay(newChatMessage);
-            setButtonsIDs(newChatMessage);
-            displayNewMessage(newChatMessage);
+            ChatBlock newChatBlock = userGuide.guideUserToSafety(neutralButtonID, getContext());
+            manageOptionsDisplay(newChatBlock.getUserOptions());
+            setButtonsIDs(newChatBlock.getUserOptions());
+            displayNewMessage(newChatBlock.getChatMessages());
         }
     }
 
@@ -178,56 +159,74 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
         startActivity(startSafePlaceActivity);
     }
 
-    private void manageOptionsDisplay(ChatMessage chatMessage) {
-        switch (chatMessage.getOptionsCount()) {
-            case 3:
-                firstChoice.setText(chatMessage.getPositiveButtonText());
-                secondChoice.setText(chatMessage.getNegativeButtonText());
-                thirdChoice.setText(chatMessage.getNeutralButtonText());
-                break;
-            case 2:
-                firstChoice.setText(chatMessage.getPositiveButtonText());
-                secondChoice.setText(chatMessage.getNegativeButtonText());
-                // firstChoice.setGravity(Gravity.CENTER);
-                thirdChoice.setVisibility(View.GONE);
-                break;
-            case 1:
-                firstChoice.setText(chatMessage.getPositiveButtonText());
-                secondChoice.setVisibility(View.GONE);
-                thirdChoice.setVisibility(View.GONE);
-                break;
-            case 0:
-                firstChoice.setText("Thanks");
-                secondChoice.setVisibility(View.GONE);
-                thirdChoice.setVisibility(View.GONE);
-                break;
-
+    private void manageOptionsDisplay(UserOptions userOptions) {
+        if (userOptions != null) {
+            switch (userOptions.getOptionsCount()) {
+                case 3:
+                    firstChoice.setText(userOptions.getPositiveButtonText());
+                    secondChoice.setText(userOptions.getNegativeButtonText());
+                    thirdChoice.setText(userOptions.getNeutralButtonText());
+                    break;
+                case 2:
+                    firstChoice.setText(userOptions.getPositiveButtonText());
+                    secondChoice.setText(userOptions.getNegativeButtonText());
+                    thirdChoice.setVisibility(View.GONE);
+                    break;
+                case 1:
+                    firstChoice.setText(userOptions.getPositiveButtonText());
+                    secondChoice.setVisibility(View.GONE);
+                    thirdChoice.setVisibility(View.GONE);
+                    break;
+            }
         }
     }
 
-    private void setButtonsIDs(ChatMessage chatMessage) {
-        switch (chatMessage.getOptionsCount()) {
-            case 3:
-                positiveButtonID = chatMessage.getPositiveButtonId();
-                negativeButtonID = chatMessage.getNegativeButtonId();
-                neutralButtonID = chatMessage.getNeutralButtonId();
-                break;
-            case 2:
-                positiveButtonID = chatMessage.getPositiveButtonId();
-                negativeButtonID = chatMessage.getNegativeButtonId();
-                break;
-            case 1:
-                positiveButtonID = chatMessage.getPositiveButtonId();
-                break;
-            case 0:
-                positiveButtonID = -2;
-                break;
+    private void setButtonsIDs(UserOptions userOptions) {
+        if (userOptions != null) {
+            switch (userOptions.getOptionsCount()) {
+                case 3:
+                    positiveButtonID = userOptions.getPositiveButtonId();
+                    negativeButtonID = userOptions.getNegativeButtonId();
+                    neutralButtonID = userOptions.getNeutralButtonId();
+                    break;
+                case 2:
+                    positiveButtonID = userOptions.getPositiveButtonId();
+                    negativeButtonID = userOptions.getNegativeButtonId();
+                    break;
+                case 1:
+                    positiveButtonID = userOptions.getPositiveButtonId();
+                    break;
+            }
         }
+    }
+
+    private void displayNewMessage(ArrayList<ChatMessage> messages) {
+
+
+        for (int i = 0; i < messages.size(); i++) {
+            chatMessages.add(messages.get(i));
+        }
+
+        final Handler timerHandler;
+        timerHandler = new Handler();
+
+        Runnable timerRunnable = new Runnable() {
+            @Override
+            public void run() {
+                //  update  adapter data
+                adapter.notifyDataSetChanged();
+                timerHandler.postDelayed(this, 2000); //run every  2 seconds
+            }
+        };
+
+        timerHandler.postDelayed(timerRunnable, 2000);
+
+
     }
 
     private void displayNewMessage(ChatMessage message) {
-        chatMessages.add(message);
 
+        chatMessages.add(message);
 
         final Handler timerHandler;
         timerHandler = new Handler();

@@ -4,69 +4,20 @@ package com.sharekeg.streetpal.chatcomponents;
  * Created by Khalid on 7/29/2017.
  */
 public class ChatMessage {
-    private String messageText, positiveButtonText, negativeButtonText, neutralButtonText;
-    private int optionsCount, positiveButtonId, negativeButtonId, neutralButtonId;
-    private boolean isUserMessage;
-
-    public ChatMessage(String messageText, String positiveButtonText, String negativeButtonText, String neutralButtonText, int positiveButtonId, int negativeButtonId, int neutralButtonId) {
-        this.messageText = messageText;
-        this.positiveButtonText = positiveButtonText;
-        this.negativeButtonText = negativeButtonText;
-        this.neutralButtonText = neutralButtonText;
-        this.optionsCount = 3;
-        this.positiveButtonId = positiveButtonId;
-        this.negativeButtonId = negativeButtonId;
-        this.neutralButtonId = neutralButtonId;
-        this.isUserMessage = false;
-    }
-
-    public ChatMessage(String messageText, String positiveButtonText, String negativeButtonText, int positiveButtonId, int negativeButtonId) {
-        this.messageText = messageText;
-        this.positiveButtonText = positiveButtonText;
-        this.negativeButtonText = negativeButtonText;
-        this.optionsCount = 2;
-        this.positiveButtonId = positiveButtonId;
-        this.negativeButtonId = negativeButtonId;
-        this.isUserMessage = false;
-    }
+    private String messageText, navigationTag;
+    private boolean isUserMessage, hasNavigationLink;
 
     public ChatMessage(String messageText, boolean isUserMessage) {
         this.messageText = messageText;
-        this.optionsCount = 0;
         this.isUserMessage = isUserMessage;
-
+        this.hasNavigationLink = false;
     }
 
-    public ChatMessage(String messageText, String positiveButtonText, int positiveButtonId) {
+    public ChatMessage(String messageText, String navigationTag, boolean isUserMessage) {
         this.messageText = messageText;
-        this.positiveButtonText = positiveButtonText;
-        this.positiveButtonId = positiveButtonId;
-        this.optionsCount = 1;
-        this.isUserMessage = false;
-    }
-
-    public String getPositiveButtonText() {
-        return positiveButtonText;
-    }
-
-    public void setPositiveButtonText(String positiveButtonText) {
-        this.positiveButtonText = positiveButtonText;
-    }
-
-    public String getNegativeButtonText() {
-        return negativeButtonText;
-    }
-
-    public void setNegativeButtonText(String negativeButtonText) {
-        this.negativeButtonText = negativeButtonText;
-    }
-
-    public String getNeutralButtonText() {
-        return neutralButtonText;
-    }
-
-    public void setNeutralButtonText(String neutralButtonText) {
-        this.neutralButtonText = neutralButtonText;
+        this.navigationTag = navigationTag;
+        this.isUserMessage = isUserMessage;
+        this.hasNavigationLink = true;
     }
 
     public String getMessageText() {
@@ -77,38 +28,21 @@ public class ChatMessage {
         this.messageText = messageText;
     }
 
-    public int getOptionsCount() {
-        return optionsCount;
+    public String getNavigationTag() {
+        return navigationTag;
     }
 
-    public void setOptionsCount(int optionsCount) {
-        this.optionsCount = optionsCount;
+    public void setNavigationTag(String navigationTag) {
+        this.navigationTag = navigationTag;
     }
 
-    public int getPositiveButtonId() {
-        return positiveButtonId;
+    public boolean isHasNavigationLink() {
+        return hasNavigationLink;
     }
 
-    public void setPositiveButtonId(int positiveButtonId) {
-        this.positiveButtonId = positiveButtonId;
+    public void setHasNavigationLink(boolean hasNavigationLink) {
+        this.hasNavigationLink = hasNavigationLink;
     }
-
-    public int getNegativeButtonId() {
-        return negativeButtonId;
-    }
-
-    public void setNegativeButtonId(int negativeButtonId) {
-        this.negativeButtonId = negativeButtonId;
-    }
-
-    public int getNeutralButtonId() {
-        return neutralButtonId;
-    }
-
-    public void setNeutralButtonId(int neutralButtonId) {
-        this.neutralButtonId = neutralButtonId;
-    }
-
 
     public boolean isUserMessage() {
         return isUserMessage;

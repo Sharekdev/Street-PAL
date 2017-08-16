@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
 
     @Override
     public void onBindViewHolder(chatHolder holder, final int position) {
+        Log.i("Chat_Message", ChatMessage.toString());
         holder.tvMessageRec.setText(ChatMessage.get(position).getMessageText());
 //        Log.i("Message_adapter",ChatMessage.get(position).toString());
         if (ChatMessage.get(position).isUserMessage()) {
