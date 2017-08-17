@@ -42,7 +42,7 @@ import ir.mirrajabi.viewfilter.renderers.BlurRenderer;
  * Created by MMenem on 8/2/2017.
  */
 
-public class StreetPalGuide extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class StreetPalGuide extends Fragment implements View.OnClickListener {
 
 
     public LinearLayoutManager mLinearLayoutManager;
@@ -68,6 +68,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
         //Initialize the recycle view
         guideChatList = (RecyclerView) streetPalGuideView.findViewById(R.id.chatList);
         guideChatList.setHasFixedSize(true);
+
 
         //Access the items of Parent Activity
         homeActivity = (RelativeLayout) getActivity().findViewById(R.id.activity_home);
@@ -108,6 +109,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
 
         adapter = new ChatAdapter(getActivity(), chatMessages);
 
+
         guideChatList.setAdapter(adapter);
 
 
@@ -116,16 +118,19 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
 
     @Override
     public void onClick(View v) {
+        Log.i("Button_ID_selected", String.valueOf(positiveButtonID));
         if (v == firstChoice) {
-            Log.i("Button_ID_selected", String.valueOf(positiveButtonID));
-            ChatMessage userMessage = new ChatMessage(firstChoice.getText().toString(), true);
-            displayNewMessage(userMessage);
-            ChatBlock newChatBlock = userGuide.guideUserToSafety(positiveButtonID, getContext());
-            manageOptionsDisplay(newChatBlock.getUserOptions());
-            setButtonsIDs(newChatBlock.getUserOptions());
-            displayNewMessage(newChatBlock.getChatMessages());
-
-
+            if (positiveButtonID == UserGuide.TERMINATE_CHAT) {
+                //Close chat
+                getActivity().onBackPressed();
+            } else {
+                ChatMessage userMessage = new ChatMessage(firstChoice.getText().toString(), true);
+                displayNewMessage(userMessage);
+                ChatBlock newChatBlock = userGuide.guideUserToSafety(positiveButtonID, getContext());
+                manageOptionsDisplay(newChatBlock.getUserOptions());
+                setButtonsIDs(newChatBlock.getUserOptions());
+                displayNewMessage(newChatBlock.getChatMessages());
+            }
         } else if (v == secondChoice) {
             Log.i("Button_ID_selected", String.valueOf(negativeButtonID));
             ChatMessage userMessage = new ChatMessage(secondChoice.getText().toString(), true);
@@ -166,6 +171,8 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
                     firstChoice.setText(userOptions.getPositiveButtonText());
                     secondChoice.setText(userOptions.getNegativeButtonText());
                     thirdChoice.setText(userOptions.getNeutralButtonText());
+                    secondChoice.setVisibility(View.VISIBLE);
+                    thirdChoice.setVisibility(View.VISIBLE);
                     break;
                 case 2:
                     firstChoice.setText(userOptions.getPositiveButtonText());
@@ -242,12 +249,6 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, Ad
 
         timerHandler.postDelayed(timerRunnable, 2000);
 
-
-    }
-
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
 }

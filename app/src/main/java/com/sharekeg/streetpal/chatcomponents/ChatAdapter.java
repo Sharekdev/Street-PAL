@@ -12,11 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.sharekeg.streetpal.R;
 
 import java.util.List;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by MMenem on 8/2/2017.
@@ -42,7 +45,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
     }
 
     @Override
-    public void onBindViewHolder(chatHolder holder, final int position) {
+    public void onBindViewHolder(final chatHolder holder, final int position) {
         Log.i("Chat_Message", ChatMessage.toString());
         holder.tvMessageRec.setText(ChatMessage.get(position).getMessageText());
 //        Log.i("Message_adapter",ChatMessage.get(position).toString());
@@ -60,6 +63,22 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
             holder.tvMessageRec.setVisibility(View.VISIBLE);
 
         }
+        holder.tvMessageRec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ChatMessage.get(holder.getAdapterPosition()).isHasNavigationLink()) {
+                    if (ChatMessage.get(holder.getAdapterPosition()).getNavigationTag().equals("safe_place")) {
+                        // navigate to safe place
+                        Toast.makeText(holder.itemView.getContext(), "Safe place", Toast.LENGTH_SHORT).show();
+                    } else if (ChatMessage.get(holder.getAdapterPosition()).getNavigationTag().equals("call_trusted_contact")) {
+                        //send stress signal
+                        Toast.makeText(holder.itemView.getContext(), "Call trusted contact", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+            }
+        });
 
     }
 

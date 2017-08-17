@@ -22,7 +22,7 @@ public class UserGuide {
             DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE = 6,
             SEND_STRESS_SIGNAL = 1000,
             USER_IS_SAFE = 1001,
-            KNOW_MORE = -5;
+            TERMINATE_CHAT = -1;
 
 
     private ChatBlock chatBlock;
@@ -38,9 +38,8 @@ public class UserGuide {
                 break;
             case USER_FEELS_FOLLOWED:
                 ArrayList<ChatMessage> chatMessages = new ArrayList<>();
-                ChatMessage chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion1).toString(), false);
-                UserOptions userOptions = new UserOptions(context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), context.getResources().getText(R.string.user_guide_agnostic_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, SEND_STRESS_SIGNAL, DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE);
-                chatMessages.add(chatMessage);
+                UserOptions userOptions = new UserOptions(context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), context.getResources().getText(R.string.user_guide_agnostic_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, USER_IS_FOLLOWED_SURROUNDINGS_ARE_NOT_SAFE, DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE);
+                chatMessages.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion1).toString(), false));
                 chatBlock = new ChatBlock(chatMessages, userOptions);
                 break;
             case USER_FEELS_IN_DANGER:
@@ -51,7 +50,12 @@ public class UserGuide {
 
                 break;
             case DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE:
-//                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_not_know_sorroundings).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, SEND_STRESS_SIGNAL);
+                ArrayList<ChatMessage> chatMessages5 = new ArrayList<>();
+                chatMessages5.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_doesnt_know_sorroundings_safe_part1).toString(), false));
+                chatMessages5.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_doesnt_know_sorroundings_safe_part2).toString(), false));
+                chatMessages5.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion1).toString(), false));
+                UserOptions userOptions5 = new UserOptions(context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), context.getResources().getText(R.string.user_guide_agnostic_button).toString(), USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE, USER_IS_FOLLOWED_SURROUNDINGS_ARE_NOT_SAFE, DOESNT_KNOW_IF_SORROUNDINGS_ARE_SAFE);
+                chatBlock = new ChatBlock(chatMessages5, userOptions5);
                 break;
             case USER_IS_FOLLOWED_SURROUNDINGS_ARE_SAFE:
                 ArrayList<ChatMessage> chatMessages1 = new ArrayList<>();
@@ -59,18 +63,33 @@ public class UserGuide {
                 chatMessages1.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_part2).toString(), false));
                 chatMessages1.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_part3).toString(), false));
                 chatMessages1.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_part4).toString(), false));
-                chatMessages1.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_part5).toString(), false));
-                chatBlock = new ChatBlock(chatMessages1);
+                chatMessages1.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_question2).toString(), false));
+                UserOptions userOptions1 = new UserOptions(context.getResources().getText(R.string.user_guide_cas1_answer2_positive_button).toString(), context.getResources().getText(R.string.user_guide_cas1_answer2_negative_button).toString(), USER_IS_SAFE, SEND_STRESS_SIGNAL);
+                chatBlock = new ChatBlock(chatMessages1, userOptions1);
 //                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_qustion2).toString(), context.getResources().getText(R.string.user_guide_postive_button).toString(), context.getResources().getText(R.string.user_guide_negative_button).toString(), USER_IS_SAFE, SEND_STRESS_SIGNAL);
                 break;
+            case USER_IS_FOLLOWED_SURROUNDINGS_ARE_NOT_SAFE:
+                ArrayList<ChatMessage> chatMessages4 = new ArrayList<>();
+                chatMessages4.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_sorroundings_not_safe_part1).toString(), false));
+                chatMessages4.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_sorroundings_not_safe_part2).toString(), "safe_place", false));
+                chatMessages4.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_sorroundings_not_safe_part3).toString(), false));
+                chatMessages4.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_sorroundings_not_safe_part4).toString(), "call_trusted_contact", false));
+                chatMessages4.add(new ChatMessage(context.getResources().getText(R.string.user_guide_case_1_question2).toString(), false));
+                UserOptions userOptions4 = new UserOptions(context.getResources().getText(R.string.user_guide_cas1_answer2_positive_button).toString(), context.getResources().getText(R.string.user_guide_cas1_answer2_negative_button).toString(), USER_IS_SAFE, SEND_STRESS_SIGNAL);
+                chatBlock = new ChatBlock(chatMessages4, userOptions4);
+                break;
             case USER_IS_SAFE:
-//                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_user_safe).toString(),false);
+                ArrayList<ChatMessage> chatMessages2 = new ArrayList<>();
+                chatMessages2.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_safe).toString(), false));
+                UserOptions userOptions2 = new UserOptions(context.getResources().getText(R.string.user_guide_terminate_chat).toString(), TERMINATE_CHAT);
+                chatBlock = new ChatBlock(chatMessages2, userOptions2);
                 break;
             case SEND_STRESS_SIGNAL:
-//                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_user_not_safe).toString(),context.getResources().getText(R.string.user_guide_button_map).toString(),-1);
-                break;
-            case KNOW_MORE:
-//                chatMessage = new ChatMessage(context.getResources().getText(R.string.user_guide_button_know_more).toString(),context.getResources().getText(R.string.user_guide_button_go_to_guide).toString(),-5);
+                ArrayList<ChatMessage> chatMessages3 = new ArrayList<>();
+                chatMessages3.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_not_safe_part1).toString(), false));
+                chatMessages3.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_not_safe_part2).toString(), false));
+                UserOptions userOptions3 = new UserOptions(context.getResources().getText(R.string.user_guide_case_1).toString(), context.getResources().getText(R.string.user_guide_case_2).toString(), context.getResources().getText(R.string.user_guide_neutral_button).toString(), USER_FEELS_FOLLOWED, USER_FEELS_IN_DANGER, USER_HAS_BEEN_HARASSED);
+                chatBlock = new ChatBlock(chatMessages3, userOptions3);
                 break;
 
         }
