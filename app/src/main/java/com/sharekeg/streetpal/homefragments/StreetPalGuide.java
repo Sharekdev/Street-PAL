@@ -27,6 +27,7 @@ import com.sharekeg.streetpal.R;
 import com.sharekeg.streetpal.chatcomponents.ChatAdapter;
 import com.sharekeg.streetpal.chatcomponents.ChatBlock;
 import com.sharekeg.streetpal.chatcomponents.ChatMessage;
+import com.sharekeg.streetpal.chatcomponents.OnUserStatusChangeListener;
 import com.sharekeg.streetpal.chatcomponents.UserGuide;
 import com.sharekeg.streetpal.chatcomponents.UserOptions;
 import com.sharekeg.streetpal.safeplace.SafePlaceActivity;
@@ -42,7 +43,7 @@ import ir.mirrajabi.viewfilter.renderers.BlurRenderer;
  * Created by MMenem on 8/2/2017.
  */
 
-public class StreetPalGuide extends Fragment implements View.OnClickListener {
+public class StreetPalGuide extends Fragment implements View.OnClickListener, OnUserStatusChangeListener {
 
 
     public LinearLayoutManager mLinearLayoutManager;
@@ -93,7 +94,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         guideChatList.setLayoutManager(new LinearLayoutManager(getContext()));
 //        mLinearLayoutManager.setStackFromEnd(true);
 
-        userGuide = new UserGuide();
+        userGuide = new UserGuide(this);
         int id = 0;
         if (getArguments() != null) {
             id = getArguments().getInt("userCase");
@@ -107,7 +108,7 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
         setButtonsIDs(chatBlock.getUserOptions());
         // Initialize the adapter for the messages
 
-        adapter = new ChatAdapter(getActivity(), chatMessages);
+        adapter = new ChatAdapter(getActivity(), chatMessages, this);
 
 
         guideChatList.setAdapter(adapter);
@@ -208,47 +209,35 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener {
     }
 
     private void displayNewMessage(ArrayList<ChatMessage> messages) {
-
-
         for (int i = 0; i < messages.size(); i++) {
             chatMessages.add(messages.get(i));
         }
-
-        final Handler timerHandler;
-        timerHandler = new Handler();
-
-        Runnable timerRunnable = new Runnable() {
-            @Override
-            public void run() {
-                //  update  adapter data
-                adapter.notifyDataSetChanged();
-                timerHandler.postDelayed(this, 2000); //run every  2 seconds
-            }
-        };
-
-        timerHandler.postDelayed(timerRunnable, 2000);
+        adapter.notifyDataSetChanged();
 
 
     }
 
     private void displayNewMessage(ChatMessage message) {
-
         chatMessages.add(message);
+        adapter.notifyDataSetChanged();
+    }
 
-        final Handler timerHandler;
-        timerHandler = new Handler();
+    @Override
+    public void OnUserStatusChange(int statusId) {
+        // here you should listen for changes made by user guide class, to handle sending messages to server
+        //Toasts are used as illustrators ONLY , REMOVE them once you started implementation
+        if (statusId == UserGuide.SEND_STRESS_SIGNAL) {
+            Toast.makeText(getContext(), "User is danger!!!!", Toast.LENGTH_SHORT).show();
+        } else if (statusId == UserGuide.USER_IS_SAFE) {
+            Toast.makeText(getContext(), "Thank God user is safe", Toast.LENGTH_SHORT).show();
+        }
 
-        Runnable timerRunnable = new Runnable() {
-            @Override
-            public void run() {
-                //  update  adapter data
-                adapter.notifyDataSetChanged();
-                timerHandler.postDelayed(this, 2000); //run every  2 seconds
-            }
-        };
+    }
 
-        timerHandler.postDelayed(timerRunnable, 2000);
-
-
+    @Override
+    public void OnUserNavigation(String navigationTag) {
+        // you can use navigation tag to search with it in map directly,
+        // if you thins that tag value is not suitable for search feel free to change it
+        Toast.makeText(getContext(), navigationTag, Toast.LENGTH_SHORT).show();
     }
 }

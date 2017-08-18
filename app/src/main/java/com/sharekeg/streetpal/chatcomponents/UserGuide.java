@@ -23,9 +23,14 @@ public class UserGuide {
             SEND_STRESS_SIGNAL = 1000,
             USER_IS_SAFE = 1001,
             TERMINATE_CHAT = -1;
-
-
+    public static final String CALL_TRUSTED_CONTACT = "call_trusted_contact",
+            SAFE_PLACE = "Safe place", POLICE_STATION = "Police station", HOSPITAL = "Hospital";
+    private OnUserStatusChangeListener listener;
     private ChatBlock chatBlock;
+
+    public UserGuide(OnUserStatusChangeListener listener) {
+        this.listener = listener;
+    }
 
 
     public ChatBlock guideUserToSafety(int situationId, Context context) {
@@ -90,6 +95,7 @@ public class UserGuide {
                 chatMessages3.add(new ChatMessage(context.getResources().getText(R.string.user_guide_user_not_safe_part2).toString(), false));
                 UserOptions userOptions3 = new UserOptions(context.getResources().getText(R.string.user_guide_case_1).toString(), context.getResources().getText(R.string.user_guide_case_2).toString(), context.getResources().getText(R.string.user_guide_neutral_button).toString(), USER_FEELS_FOLLOWED, USER_FEELS_IN_DANGER, USER_HAS_BEEN_HARASSED);
                 chatBlock = new ChatBlock(chatMessages3, userOptions3);
+                listener.OnUserStatusChange(SEND_STRESS_SIGNAL);
                 break;
 
         }

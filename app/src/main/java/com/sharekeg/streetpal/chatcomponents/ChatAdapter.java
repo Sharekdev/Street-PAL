@@ -30,11 +30,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
     List<ChatMessage> ChatMessage;
     Context context;
     private View v;
+    private OnUserStatusChangeListener listener;
 
-
-    public ChatAdapter(Context context, List<ChatMessage> ChatMessage) {
+    public ChatAdapter(Context context, List<ChatMessage> ChatMessage, OnUserStatusChangeListener listener) {
         this.ChatMessage = ChatMessage;
         this.context = context;
+        this.listener = listener;
     }
 
 
@@ -46,9 +47,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
 
     @Override
     public void onBindViewHolder(final chatHolder holder, final int position) {
-        Log.i("Chat_Message", ChatMessage.toString());
-        holder.tvMessageRec.setText(ChatMessage.get(position).getMessageText());
-//        Log.i("Message_adapter",ChatMessage.get(position).toString());
+        Log.i("Chat_Message", ChatMessage.get(position).toString());
         if (ChatMessage.get(position).isUserMessage()) {
             holder.streetPalLogo.setVisibility(View.GONE);
             holder.tvMessageRec.setVisibility(View.GONE);
@@ -67,13 +66,10 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
             @Override
             public void onClick(View v) {
                 if (ChatMessage.get(holder.getAdapterPosition()).isHasNavigationLink()) {
-                    if (ChatMessage.get(holder.getAdapterPosition()).getNavigationTag().equals("safe_place")) {
-                        // navigate to safe place
-                        Toast.makeText(holder.itemView.getContext(), "Safe place", Toast.LENGTH_SHORT).show();
-                    } else if (ChatMessage.get(holder.getAdapterPosition()).getNavigationTag().equals("call_trusted_contact")) {
-                        //send stress signal
-                        Toast.makeText(holder.itemView.getContext(), "Call trusted contact", Toast.LENGTH_SHORT).show();
-
+                    if (ChatMessage.get(holder.getAdapterPosition()).getNavigationTag().equals(UserGuide.CALL_TRUSTED_CONTACT)) {
+                        listener.OnUserStatusChange(UserGuide.SEND_STRESS_SIGNAL);
+                    } else {
+                        listener.OnUserNavigation(ChatMessage.get(holder.getAdapterPosition()).getNavigationTag());
                     }
 
                 }
