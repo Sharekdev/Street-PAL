@@ -227,9 +227,11 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, On
         // here you should listen for changes made by user guide class, to handle sending messages to server
         //Toasts are used as illustrators ONLY , REMOVE them once you started implementation
         if (statusId == UserGuide.SEND_STRESS_SIGNAL) {
-            Toast.makeText(getContext(), "User is danger!!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Send stress signal", Toast.LENGTH_SHORT).show();
         } else if (statusId == UserGuide.USER_IS_SAFE) {
             Toast.makeText(getContext(), "Thank God user is safe", Toast.LENGTH_SHORT).show();
+        } else if (statusId == UserGuide.USER_FEELS_IN_DANGER) {
+            Toast.makeText(getContext(), "User is in danger!!!!", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -238,6 +240,19 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, On
     public void OnUserNavigation(String navigationTag) {
         // you can use navigation tag to search with it in map directly,
         // if you thins that tag value is not suitable for search feel free to change it
-        Toast.makeText(getContext(), navigationTag, Toast.LENGTH_SHORT).show();
+        if (navigationTag.equals(UserGuide.SAFE_PLACE)) {
+            //navigate to nearest safe place
+            Toast.makeText(getContext(), "Safe place", Toast.LENGTH_SHORT).show();
+        } else if (navigationTag.equals(UserGuide.HEADING_TO_POLICE)) {
+            ChatMessage userMessage = new ChatMessage(this.getResources().getText(R.string.user_in_danger_first_question_answer_3).toString(), true);
+            displayNewMessage(userMessage);
+            ChatBlock newChatBlock = userGuide.guideUserToSafety(UserGuide.GOING_TO_POLICE_STATION, getContext());
+            manageOptionsDisplay(newChatBlock.getUserOptions());
+            setButtonsIDs(newChatBlock.getUserOptions());
+            displayNewMessage(newChatBlock.getChatMessages());
+        } else {
+            Toast.makeText(getContext(), navigationTag, Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

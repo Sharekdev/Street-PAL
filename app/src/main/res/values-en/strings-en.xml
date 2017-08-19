@@ -244,10 +244,37 @@
     <string name="user_guide_terminate_chat">Thanks</string>
     <string name="user_guide_user_sorroundings_not_safe_part1">Try to get yourself away from the threat and through a populated area.</string>
     <string name="user_guide_user_sorroundings_not_safe_part2">	If you can’t do so we recommend you make your way to the nearest safe place, we will draw you a route if you <u><b>click here</b></u></string>
-    <string name="user_guide_user_sorroundings_not_safe_part3">If you don’t want to visit the safe place or it is far away from you, be ready to follow our guide if something happened</string>
+    <string name="user_guide_user_sorroundings_not_safe_part3">Be ready to follow our guide if something happened</string>
     <string name="user_guide_user_sorroundings_not_safe_part4">We can alert your trusted contact that you feel worried, by <u><b>clicking here</b></u></string>
     <string name="user_guide_user_doesnt_know_sorroundings_safe_part1">Study your surroundings and scan for people who might help or places you might seek for shelter</string>
     <string name="user_guide_user_doesnt_know_sorroundings_safe_part2">If you are not in an isolated space and you believe there are people around that might help click YES, if not click NO</string>
-
+    <string name="user_in_danger_part1">We have sent a distress signal, your trusted contacts are notified</string>
+    <string name="user_in_danger_part2">Meanwhile, follow our instructions</string>
+    <string name="user_in_danger_part3">Try to get attention to your situation by loudly asking for help and stating what happened exactly “Sexual Harassment”</string>
+    <string name="user_in_danger_part4">Ask people to help you by taking him to the nearest police station and to testify while filing the official sexual harassment report</string>
+    <string name="user_in_danger_part5">Did people respond and help? Are you heading to the police station?</string>
+    <string name="user_in_danger_first_question_answer_1">No, and I can’t take him to the police station</string>
+    <string name="user_in_danger_first_question_answer_2">Yes, they are helping but they are not taking him to the police station</string>
+    <string name="user_in_danger_first_question_answer_3">Yes, they are helping and we are heading to the police station now</string>
+    <string name="user_in_danger_no_help_part1">Try and recognize details about the harasser</string>
+    <string name="user_in_danger_no_help_part2">Get yourself to safety, If you are hurt and need medical attention please, head to <u>the nearest hospital</u> to get medical help and file a medical report</string>
+    <string name="user_in_danger_no_help_part3">You can always go to <u>the nearest police station</u> and file an official “Sexual Harassment” Complaint</string>
+    <string name="user_in_danger_help_not_police_part1">Ask people again to help you take the harasser to the police station and explain that this is the right way to handle the situation</string>
+    <string name="user_in_danger_help_not_police_part2">If you succeed and they are helping you get to the police station, click here: <u>Yes, they are helping and we are heading to the police station now</u></string>
+    <string name="user_in_danger_help_not_police_part3">If they still won’t help you get to the police station, do the following</string>
+    <string name="user_in_danger_help_not_police_part4">If you feel unsafe, Get yourself to safety, If you are hurt and need medical attention please, head to <u>the nearest hospital</u> to get medical help and file a medical report</string>
+    <string name="user_in_danger_going_police_part1">Ask people to testify with you in the police station and explain that this is the right way to handle the situation</string>
+    <string name="user_in_danger_going_police_part2">Head to <u>the nearest police station</u> and file an official “Sexual Harassment” Complaint</string>
+    <string name="police_station_package_1">Follow the route to <u>the nearest police station</u> to file an official “Sexual Harassment” Complaint</string>
+    <string name="police_station_package_2">Upon arrival ask for the human rights officer and explain you want to file a sexual harassment complaint</string>
+    <string name="police_station_package_3">Present the medical report –if you have one- and ask for it to be included in the complaint</string>
+    <string name="police_station_package_4">You can call Nazra for Feminist Studies for legal and psychological support: 01011910917. Nazra will send you a trained lawyer if available</string>
+    <string name="police_station_package_5">Make sure to state everything that happened as is. You have the right to give your statement in a separate space than the one the harasser is held in</string>
+    <string name="police_station_package_6">Write down the complaint number and follow up on the investigation</string>
+    <string name="police_station_package_7">If someone refused to help you at the police station, call the Ministry of Interior hotline: 138 and report the incident. </string>
+    <string name="police_station_package_8">If you feel you need to talk to a professional, you can call Al-Nadeem Institute for psychological support: 01006662404</string>
+    <string name="police_station_package_9">You can call Nazra for Feminist Studies for psychological support: 01011910917</string>
+    <string name="police_station_package_10">In a couple of days, you should go to the general investigation office and you will tell your statement again with your lawyer</string>
+    <string name="police_station_package_11">If you are injured and/or need a medical report, head to <u>nearest hospital </u> listed and ask to be directed to the emergency room, get checked out and ask for a medical report</string>
 
 </resources>

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,12 +53,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.chatHolder> {
             holder.streetPalLogo.setVisibility(View.GONE);
             holder.tvMessageRec.setVisibility(View.GONE);
 //            holder.userChatLogo.setVisibility(View.VISIBLE);
-//            holder.tvMessageRec.setGravity(RelativeLayout.ALIGN_PARENT_RIGHT);
+//            holder.tvMessageRec.setGravity(R elativeLayout.ALIGN_PARENT_RIGHT);
             holder.userMessage.setText(ChatMessage.get(position).getMessageText());
             holder.userMessage.setVisibility(View.VISIBLE);
         } else {
             holder.userMessage.setVisibility(View.GONE);
-            holder.tvMessageRec.setText(ChatMessage.get(position).getMessageText());
+            holder.tvMessageRec.setText(Html.fromHtml(ChatMessage.get(position).getMessageText()));
             holder.streetPalLogo.setVisibility(View.VISIBLE);
             holder.tvMessageRec.setVisibility(View.VISIBLE);
 

@@ -117,7 +117,7 @@ public class HomeTab extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.second_card:
-                bundle.putInt("userCase", UserGuide.SEND_STRESS_SIGNAL);
+                bundle.putInt("userCase", UserGuide.USER_FEELS_IN_DANGER);
                 startStreetPalGuide();
 
                 break;
