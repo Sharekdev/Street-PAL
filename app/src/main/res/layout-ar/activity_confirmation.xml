@@ -22,6 +22,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/white"
                 android:gravity="center"
+                android:textSize="@dimen/text_size"
                 android:text="@string/confrim_title"
                 android:textColor="#000" />
 
@@ -47,7 +48,7 @@
             android:gravity="right"
             android:textColor="@color/black"
             android:textColorHint="@color/confirmation_controls_hint"
-            android:textSize="12dp"
+            android:textSize="@dimen/text_size"
             />
 
         <com.sharekeg.streetpal.TextViewForArabic
@@ -69,7 +70,8 @@
             android:layout_marginLeft="160dp"
             android:gravity="center"
             android:textColor="@color/black"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:textSize="@dimen/text_size" />
 
         <ImageView
             android:id="@+id/IV_confirm"
@@ -89,7 +91,7 @@
             android:layout_marginTop="20dp"
             android:text="Welcome Nasser !"
             android:textColor="@color/Green"
-            android:textSize="15dp" />
+            android:textSize="@dimen/text_size" />
 
         <com.sharekeg.streetpal.ButtonForArabic
             android:id="@+id/btn_Submit"
@@ -104,7 +106,7 @@
             android:text="@string/btn1"
             android:textColor="@color/white"
             android:textAllCaps="false"
-            android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
         <com.sharekeg.streetpal.ButtonForArabic
             android:id="@+id/btn_ResendCode"
@@ -119,7 +121,7 @@
             android:text="@string/btn2"
             android:textColor="@color/white"
             android:textAllCaps="false"
-            android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
         <com.sharekeg.streetpal.TextViewForArabic
             android:id="@+id/TV_Confirm"
@@ -131,7 +133,7 @@
             android:layout_marginTop="50dp"
             android:text="@string/TxtView"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
     </RelativeLayout>
 
 </ScrollView>

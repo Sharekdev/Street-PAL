@@ -17,8 +17,9 @@
         android:paddingLeft="65dp"
         android:id="@+id/tvFQA"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+                android:textSize="@dimen/text_size"
         />
 
     <android.support.v4.view.ViewPager

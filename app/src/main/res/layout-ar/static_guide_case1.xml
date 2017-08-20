@@ -22,7 +22,7 @@
                 android:layout_marginLeft="30dp"
                 android:padding="15dp"
                 android:text="@string/static_guide_case1"
-                android:textSize="13dp"
+                android:textSize="@dimen/text_size"
                 android:textColor="@color/black"
                 android:drawableLeft="@drawable/ic_question" />
             <com.sharekeg.streetpal.TextViewForArabic
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvQs"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/gray_rectangles_of_available_helping"
                 android:drawablePadding="20dp"
                 android:gravity="center_vertical"
@@ -38,7 +38,7 @@
                 android:layout_marginLeft="30dp"
                 android:padding="15dp"
                 android:text="@string/static_guide_case1_instruction"
-                android:textSize="13dp"
+                android:textSize="@dimen/text_size"
                 android:textColor="@color/black"
                 />
         </RelativeLayout>

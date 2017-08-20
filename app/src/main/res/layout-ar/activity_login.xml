@@ -46,6 +46,7 @@
                 android:layout_marginTop="20dp"
                 android:adjustViewBounds="true"
                 android:background="@color/login_controls_bg"
+                android:inputType="textEmailAddress"
                 android:drawableLeft="@drawable/ic_username"
                 android:drawablePadding="9dp"
                 android:drawableStart="@drawable/ic_username"
@@ -57,7 +58,7 @@
                 android:paddingTop="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/login_controls_hint"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForArabic
                 android:id="@+id/etpassword"
@@ -83,7 +84,7 @@
                 android:paddingTop="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/login_controls_hint"
-                android:textSize="12sp" />
+            android:textSize="@dimen/text_size" />
             <!-- Login button -->
             <com.sharekeg.streetpal.ButtonForArabic
                 android:id="@+id/btnLogin"
@@ -97,7 +98,7 @@
                 android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+            android:textSize="@dimen/text_size" />
             <!-- Link to Registration Screen -->
             <com.sharekeg.streetpal.TextViewForArabic
                 android:id="@+id/link_to_register"
@@ -109,7 +110,7 @@
                 android:gravity="center"
                 android:text="@string/register_txt"
                 android:textColor="@color/black"
-                android:textSize="13sp" />
+            android:textSize="@dimen/text_size" />
 
         </LinearLayout>
     </RelativeLayout>

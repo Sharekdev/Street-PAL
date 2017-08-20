@@ -30,7 +30,8 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:text="@string/tvsignUP"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.TextViewForEnglish
                 android:id="@+id/tvback"
@@ -39,6 +40,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:textSize="@dimen/text_size"
                 android:background="@drawable/bg" />
         </RelativeLayout>
 
@@ -73,7 +75,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/tv_upload_profile_picture"
                 android:textColor="#000"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
         </RelativeLayout>
 
 
@@ -97,7 +99,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForEnglish
 
@@ -109,7 +111,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForEnglish
                 android:id="@+id/etemail"
@@ -121,7 +123,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForEnglish
                 android:id="@+id/etphone"
@@ -133,7 +135,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForEnglish
                 android:id="@+id/TV_passward"
@@ -145,7 +147,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
 
 
         </LinearLayout>
@@ -167,7 +169,7 @@
                 android:text="@string/privateinfo"
                 android:textAllCaps="true"
                 android:textColor="#9f9999"
-                android:textSize="11dp" />
+                android:textSize="@dimen/text_size" />
         </LinearLayout>
 
 
@@ -202,7 +204,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
             <com.sharekeg.streetpal.EditTextForEnglish
                 android:id="@+id/etWork"
                 android:layout_width="match_parent"
@@ -213,7 +215,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp"
+                android:textSize="@dimen/text_size"
 
                 />
 
@@ -228,7 +230,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.ButtonForEnglish
                 android:id="@+id/btn_UploadNationalCard"
@@ -244,7 +246,7 @@
                 android:text="@string/upload_national_card"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="10dp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForEnglish
                 android:id="@+id/etage"
@@ -259,7 +261,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
 
 
         </RelativeLayout>
@@ -283,7 +285,7 @@
                 android:text="@string/tvsignUP"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="12dp" />
+                android:textSize="@dimen/text_size" />
         </RelativeLayout>
 
 

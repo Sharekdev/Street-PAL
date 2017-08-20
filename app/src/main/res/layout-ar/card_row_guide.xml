@@ -27,7 +27,7 @@
         android:padding="15dp"
         android:text="@string/string1"
         android:textColor="@color/black"
-        android:textSize="13dp" />
+            android:textSize="@dimen/text_size" />
 
 </RelativeLayout>
 

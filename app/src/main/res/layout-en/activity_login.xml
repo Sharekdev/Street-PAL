@@ -50,13 +50,14 @@
                 android:drawablePadding="9dp"
                 android:drawableStart="@drawable/ic_username"
                 android:hint="@string/user_name"
+                android:inputType="textEmailAddress"
                 android:padding="15dp"
                 android:paddingLeft="10dp"
                 android:paddingStart="10dp"
                 android:paddingTop="13dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/login_controls_hint"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForEnglish
                 android:id="@+id/etpassword"
@@ -79,7 +80,7 @@
                 android:paddingTop="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/login_controls_hint"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_size" />
             <!-- Login button -->
             <com.sharekeg.streetpal.ButtonForEnglish
                 android:id="@+id/btnLogin"
@@ -93,7 +94,7 @@
                 android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
             <!-- Link to Registration Screen -->
             <com.sharekeg.streetpal.TextViewForEnglish
                 android:id="@+id/link_to_register"
@@ -105,7 +106,7 @@
                 android:gravity="center"
                 android:text="@string/register_txt"
                 android:textColor="@color/black"
-                android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
         </LinearLayout>
 

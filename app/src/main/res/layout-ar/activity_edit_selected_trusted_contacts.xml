@@ -26,7 +26,7 @@
             android:text="@string/trusted_contact"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="@dimen/text_size"
             android:id="@+id/textView4" />
 
         <com.sharekeg.streetpal.TextViewForArabic
@@ -36,7 +36,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:text="@string/cancel"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size" />
 
 
         <com.sharekeg.streetpal.TextViewForArabic
@@ -46,7 +47,7 @@
             android:layout_marginEnd="5dp"
             android:text="@string/done"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="@dimen/text_size"
             android:layout_alignBaseline="@+id/cancel"
             android:layout_alignBottom="@+id/cancel"
             android:layout_alignParentLeft="true"
@@ -72,7 +73,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/Your_selected_contact"
             android:textColor="@color/black"
-            android:textSize="14dp" />
+            android:textSize="@dimen/text_size" />
 
     </RelativeLayout>
 
@@ -100,7 +101,7 @@
             android:layout_marginTop="10dp"
             android:text="Name"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+            android:textSize="@dimen/text_size" />
 
         <com.sharekeg.streetpal.TextViewForArabic
             android:id="@+id/tvNumber"
@@ -109,7 +110,7 @@
             android:layout_marginTop="5dp"
             android:text="Number"
             android:textColor="@color/black"
-            android:textSize="13dp" />
+            android:textSize="@dimen/text_size" />
 
 
     </LinearLayout>
@@ -133,6 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="add-new"
+            android:textSize="@dimen/text_size"
             android:layout_alignBaseline="@+id/textView5"
             android:layout_alignBottom="@+id/textView5"
             android:layout_alignRight="@+id/IV_add_new"
@@ -154,6 +156,7 @@
             android:layout_below="@id/IV_edit"
             android:layout_marginRight="130dp"
             android:layout_marginTop="5dp"
+            android:textSize="@dimen/text_size"
             android:layout_centerHorizontal="true"
             android:text="@string/edit"
             android:id="@+id/textView5" />
@@ -174,6 +177,7 @@
             android:layout_below="@id/IV_edit"
             android:layout_marginRight="110dp"
             android:layout_marginTop="5dp"
+            android:textSize="@dimen/text_size"
             android:layout_alignStart="@+id/IV_edit"
             android:layout_alignLeft="@+id/IV_edit"
             android:text="@string/remove" />

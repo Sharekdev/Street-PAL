@@ -26,7 +26,7 @@
             android:text="@string/trusted_contact"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+                android:textSize="@dimen/text_size" />
 
         <com.sharekeg.streetpal.TextViewForEnglish
             android:id="@+id/cancel"
@@ -35,6 +35,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:text="@string/cancel"
+                android:textSize="@dimen/text_size"
             android:textColor="@color/white" />
 
 
@@ -49,7 +50,7 @@
             android:layout_marginRight="13dp"
             android:text="@string/done"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+                android:textSize="@dimen/text_size" />
 
     </RelativeLayout>
 
@@ -68,7 +69,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/Your_selected_contact"
             android:textColor="@color/black"
-            android:textSize="14dp" />
+                android:textSize="@dimen/text_size" />
 
     </RelativeLayout>
 
@@ -96,7 +97,7 @@
             android:layout_marginTop="10dp"
             android:text="Name"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+                android:textSize="@dimen/text_size" />
 
         <com.sharekeg.streetpal.TextViewForEnglish
             android:id="@+id/tvNumber"
@@ -105,7 +106,7 @@
             android:layout_marginTop="5dp"
             android:text="Number"
             android:textColor="@color/black"
-            android:textSize="13dp" />
+                android:textSize="@dimen/text_size" />
 
 
     </LinearLayout>
@@ -132,6 +133,7 @@
             android:layout_height="wrap_content"
             android:text="add-new"
             android:layout_marginLeft="8dp"
+                android:textSize="@dimen/text_size"
             android:layout_alignBottom="@+id/textView5"
             android:layout_alignLeft="@+id/IV_add_new"
             android:layout_alignStart="@+id/IV_add_new"
@@ -152,6 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/IV_edit"
             android:layout_centerHorizontal="true"
+                android:textSize="@dimen/text_size"
             android:layout_marginTop="5dp"
             android:text="@string/edit"
             android:id="@+id/textView5" />
@@ -173,6 +176,7 @@
             android:layout_marginLeft="110dp"
             android:layout_marginTop="5dp"
             android:layout_alignStart="@+id/IV_edit"
+                android:textSize="@dimen/text_size"
             android:layout_alignLeft="@+id/IV_edit"
             android:text="@string/remove" />
 

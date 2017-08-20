@@ -30,7 +30,8 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:text="@string/tvsignUP"
-                android:textColor="#000" />
+                android:textColor="#000"
+            android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.TextViewForArabic
                 android:id="@+id/tvback"
@@ -39,6 +40,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
+            android:textSize="@dimen/text_size"
                 android:background="@drawable/bg" />
         </RelativeLayout>
 
@@ -71,9 +73,9 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="105dp"
                 android:layout_marginTop="8dp"
+            android:textSize="@dimen/text_size"
                 android:text="@string/tv_upload_profile_picture"
-                android:textColor="#000"
-                android:textSize="12dp" />
+                android:textColor="#000" />
         </RelativeLayout>
 
 
@@ -98,7 +100,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForArabic
 
@@ -111,7 +113,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForArabic
                 android:id="@+id/etemail"
@@ -124,7 +126,8 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size"
+ />
 
             <com.sharekeg.streetpal.EditTextForArabic
                 android:id="@+id/etphone"
@@ -137,7 +140,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForArabic
                 android:id="@+id/TV_passward"
@@ -150,7 +153,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
 
         </LinearLayout>
@@ -173,7 +176,7 @@
                 android:text="@string/privateinfo"
                 android:textAllCaps="true"
                 android:textColor="#9f9999"
-                android:textSize="11dp" />
+            android:textSize="@dimen/text_size" />
         </LinearLayout>
 
 
@@ -209,7 +212,7 @@
                 android:gravity="right"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
             <com.sharekeg.streetpal.EditTextForArabic
                 android:id="@+id/etWork"
                 android:layout_width="match_parent"
@@ -221,7 +224,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp"
+            android:textSize="@dimen/text_size"
 
                 />
 
@@ -237,7 +240,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.ButtonForArabic
                 android:id="@+id/btn_UploadNationalCard"
@@ -253,7 +256,7 @@
                 android:text="@string/upload_national_card"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="10dp" />
+            android:textSize="@dimen/text_size" />
 
             <com.sharekeg.streetpal.EditTextForArabic
                 android:id="@+id/etage"
@@ -269,7 +272,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/signup_controls_hint"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
 
         </RelativeLayout>
@@ -293,7 +296,7 @@
                 android:text="@string/tvsignUP"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
         </RelativeLayout>
 
 

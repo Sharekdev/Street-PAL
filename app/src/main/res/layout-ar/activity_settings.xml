@@ -19,7 +19,7 @@
             android:gravity="center"
             android:text="@string/setting"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/text_size" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -32,7 +32,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="20dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:textSize="@dimen/text_size" />
 
     </RelativeLayout>
 
@@ -59,7 +60,7 @@
 
             android:text="@string/account"
             android:textColor="@color/login_controls_hint"
-            android:textSize="12dp" />
+            android:textSize="@dimen/text_size" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
@@ -80,6 +81,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="4dp"
                 android:gravity="right"
+                android:textSize="@dimen/text_size"
                 android:background="@color/white"
                 android:text="@string/editProfile" />
 
@@ -107,6 +109,7 @@
                 android:layout_below="@+id/editProfile"
                 android:layout_marginRight="4dp"
                 android:gravity="right"
+            android:textSize="@dimen/text_size"
                 android:layout_marginTop="30dp"
                 android:background="@color/white"
                 android:text="@string/Change_Password" />
@@ -134,6 +137,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/settings"
+            android:textSize="@dimen/text_size"
             android:textColor="@color/login_controls_hint"
 
             />
@@ -151,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_alignParentLeft="true"
-
+            android:textSize="@dimen/text_size"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="4dp"
@@ -165,10 +169,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/trusted_contact"
                 android:layout_marginRight="4dp"
-
+            android:textSize="@dimen/text_size"
                 android:text="Reem Nabil"
                 android:textColor="@color/login_controls_hint"
-                android:textSize="10dp" />
+ />
 
             <ImageView
                 android:id="@+id/IV_trusted_contact"
@@ -186,6 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:gravity="right"
+            android:textSize="@dimen/text_size"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView3"
@@ -215,6 +220,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="108dp"
             android:text="@string/support"
+            android:textSize="@dimen/text_size"
             android:textColor="@color/login_controls_hint"
 
             />
@@ -236,6 +242,7 @@
                 android:layout_below="@+id/trusted_contact"
                 android:layout_marginRight="4dp"
                 android:gravity="right"
+            android:textSize="@dimen/text_size"
                 android:background="@color/white"
                 android:text="@string/privacy_policy" />
 
@@ -262,6 +269,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@color/white"
                 android:gravity="right"
+            android:textSize="@dimen/text_size"
                 android:text="@string/Report_a_problem" />
 
             <ImageView
@@ -291,6 +299,7 @@
             android:layout_marginTop="340dp"
             android:background="@color/white"
             android:text="@string/logout"
+            android:textSize="@dimen/text_size"
             android:textColor="@color/logout" />
     </RelativeLayout>
 

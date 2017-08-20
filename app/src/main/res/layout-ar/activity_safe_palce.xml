@@ -27,7 +27,7 @@
             android:text="@string/Safe_Places"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="@dimen/text_size" />
 
         <ImageView
             android:id="@+id/ivSettings"
@@ -39,6 +39,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginStart="10dp"
+            android:textSize="@dimen/text_size"
             android:background="@drawable/ic_more_icon" />
 
     </RelativeLayout>
@@ -96,7 +97,7 @@
             android:paddingRight="14dp"
             android:text="@string/recording"
             android:textColor="@color/Black"
-            android:textSize="18dp" />
+            android:textSize="@dimen/text_size" />
 
         <Chronometer
             android:id="@+id/chrono"
@@ -107,7 +108,8 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/tvRecord"
             android:layout_toRightOf="@id/tvRecord"
-            android:textColor="@color/Black" />
+            android:textColor="@color/Black" 
+            android:textSize="@dimen/text_size"/>
 
 
         <ImageView
@@ -181,7 +183,7 @@
             android:padding="15dp"
             android:text="@string/string2"
             android:textColor="@color/black"
-            android:textSize="13dp" />
+            android:textSize="@dimen/text_size" />
     </LinearLayout>
 
     <com.sharekeg.streetpal.TextViewForArabic
@@ -195,7 +197,7 @@
         android:gravity="center_horizontal"
         android:text="@string/select_place_that_y_need"
         android:textColor="@color/black"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_size" />
 
     <!--<Button-->
     <!--android:id="@+id/btnNavigate"-->
@@ -232,7 +234,7 @@
             android:text="@string/mark_safe"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/text_size" />
 
         <View
             android:id="@+id/separator"
@@ -252,7 +254,7 @@
             android:text="@string/call_vol"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/text_size" />
 
 
     </LinearLayout>

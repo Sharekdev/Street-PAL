@@ -19,6 +19,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:text="@string/cancel"
+            android:textSize="@dimen/text_size"
             android:textColor="@color/white" />
 
         <com.sharekeg.streetpal.TextViewForArabic
@@ -29,6 +30,7 @@
             android:gravity="center"
             android:text="@string/Feedback"
             android:textAllCaps="true"
+            android:textSize="@dimen/text_size"
             android:textColor="@color/white" />
 
         <com.sharekeg.streetpal.ButtonForArabic
@@ -39,6 +41,7 @@
             android:background="@color/login_button_bg"
             android:text="@string/send"
             android:textAllCaps="false"
+            android:textSize="@dimen/text_size"
             android:textColor="@color/white" />
 
     </RelativeLayout>
@@ -56,7 +59,7 @@
             android:layout_marginTop="49dp"
             android:text="@string/generalfeedback"
             android:textColor="@color/confirmation_controls_hint"
-            android:textSize="12dp"
+            android:textSize="@dimen/text_size"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="52dp" />
 
@@ -65,7 +68,7 @@
             android:layout_height="wrap_content"
             android:text="@string/Briefly"
             android:textColor="@color/confirmation_controls_hint"
-            android:textSize="11dp"
+            android:textSize="@dimen/text_size"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="66dp"
             tools:layout_editor_absoluteX="16dp"
@@ -84,7 +87,8 @@
         <com.sharekeg.streetpal.EditTextForArabic
             android:id="@+id/edittext"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_size" />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -15,17 +15,18 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <TextView
+        <com.sharekeg.streetpal.TextViewForEnglish
             android:id="@+id/tv_welcome_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
             android:layout_marginTop="30dp"
             android:gravity="center_horizontal"
             android:text="@string/Welcome"
             android:textColor="@color/black"
             android:textStyle="normal" />
 
-        <TextView
+        <com.sharekeg.streetpal.TextViewForEnglish
             android:id="@+id/hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +34,7 @@
             android:gravity="center_horizontal"
             android:text="@string/WelcomeText"
             android:textColor="@color/border_home"
+                android:textSize="@dimen/text_size"
             android:textStyle="normal" />
 
 
@@ -66,7 +68,7 @@
                 android:gravity="start"
                 android:text="@string/string1"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
         </RelativeLayout>
@@ -99,7 +101,7 @@
                 android:gravity="start"
                 android:text="@string/string2"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
         </RelativeLayout>
@@ -132,7 +134,7 @@
                 android:gravity="start"
                 android:text="@string/string3"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
         </RelativeLayout>

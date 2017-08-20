@@ -21,7 +21,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="5dp"
             android:background="@drawable/back_icon"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
         <com.sharekeg.streetpal.TextViewForEnglish
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,6 +31,7 @@
             android:gravity="center"
             android:text="@string/privacypolicy"
             android:textAllCaps="true"
+                android:textSize="@dimen/text_size"
             android:textColor="@color/white" />
 
 

@@ -165,58 +165,61 @@
     <!--____________________________ FQAs ______________________-->
     <string name="static_guide_title">We support you with some of FAQs that will avoid and protect you</string>
     <string name="static_guide_case1">I am being sexually harassed now, what should I do?</string>
-    <string name="static_guide_case1_instruction">• We will send a distress signal, we are looking for nearby advocates and your trusted contacts will also be notified.\n
-• Meanwhile, follow our instructions.\n
-        • Try to get attention to your situation by loudly asking for help and stating what happened exactly “Sexual Harassment”\n
-• Ask people to help you by taking him to the nearest police station and to testify while filing the official sexual harassment report.\n
+    <string name="static_guide_case1_instruction">- We will send a distress signal, we are looking for nearby advocates and your trusted contacts will also be notified.\n
+- Meanwhile, follow our instructions.\n
+        - Try to get attention to your situation by loudly asking for help and stating what happened exactly “Sexual Harassment”\n
+- Ask people to help you by taking him to the nearest police station and to testify while filing the official sexual harassment report.\n
 </string>
 
 
     <string name="static_guide_case2">I have been sexually harassed and I am now at the police station, what should I do?</string>
-    <string name="static_guide_case2_instructions">• We will send a distress signal, we will look for nearby advocates and your trusted contacts will also be notified.\n
-• Meanwhile, follow our instructions.\n
-• You should ask for the human rights officer and explain you want to file a sexual harassment complaint.\n
-• Present the medical report –if you have one- and ask for it to be included in the complaint.\n
-• You can call Nazra for Feminist Studies for legal and psychological support: 01011910917. Nazra will send you a trained lawyer if available. \n
-• Make sure to state everything that happened as is. You have the right to give your statement in a separate space than the one the harasser is held in.\n
-• Write down the complaint number and follow up on the investigation.\n
-• If someone refused to help you at the police station, call the Ministry of Interior hotline: 138 and report the incident. \n
-• If you are injured and/or need a medical report, head to nearest hospital listed and ask to be directed to the emergency room, get checked out and ask for a medical report.\n
-• If you feel you need to talk to a professional, you can call Al-Nadeem Institute for psychological support: 01006662404 \n
-• You can call Nazra for Feminist Studies for psychological support: 01011910917 \n
-• In a couple of days, you should go to the general investigation office and you will tell your statement again with your lawyer.\n
+    <string name="static_guide_case2_instructions">- We will send a distress signal, we will look for nearby advocates and your trusted contacts will also be notified.\n
+- Meanwhile, follow our instructions.\n
+- You should ask for the human rights officer and explain you want to file a sexual harassment complaint.\n
+- Present the medical report –if you have one- and ask for it to be included in the complaint.\n
+- You can call Nazra for Feminist Studies for legal and psychological support: 01011910917. Nazra will send you a trained lawyer if available. \n
+- Make sure to state everything that happened as is. You have the right to give your statement in a separate space than the one the harasser is held in.\n
+- Write down the complaint number and follow up on the investigation.\n
+- If someone refused to help you at the police station, call the Ministry of Interior hotline: 138 and report the incident. \n
+- If you are injured and/or need a medical report, head to nearest hospital listed and ask to be directed to the emergency room, get checked out and ask for a medical report.\n
+- If you feel you need to talk to a professional, you can call Al-Nadeem Institute for psychological support: 01006662404 \n
+- You can call Nazra for Feminist Studies for psychological support: 01011910917 \n
+- In a couple of days, you should go to the general investigation office and you will tell your statement again with your lawyer.\n
 </string>
 
 
     <string name="static_guide_case3">I have been sexually harassed and I filed a report at the police station, what should I do?</string>
-    <string name="static_guide_case3_instructions">• You can call Nazra for Feminist Studies for legal and psychological support: 01011910917. Nazra will send you a trained lawyer if available. \n
-• Make sure to state everything that happened as is. You have the right to give your statement in a separate space than the one the harasser is held in.\n
-• Write down the complaint number and follow up on the investigation.\n
-• If someone refused to help you at the police station, call the Ministry of Interior hotline: 138 and report the incident. \n
-• If you are injured and/or need a medical report, head to nearest hospital listed and ask to be directed to the emergency room, get checked out and ask for a medical report.\n
-• If you feel you need to talk to a professional, you can call Al-Nadeem Institute for psychological support: 01006662404 \n
-• You can call Nazra for Feminist Studies for psychological support: 01011910917 \n
-• In a couple of days, you should go to the general investigation office and you will tell your statement again with your lawyer.\n
-• Follow your lawyer’s instructions and don’t ever take back you statement. \n
-• If you are threatened or harassed by the family of the harasser, communicate with your lawyer and file a restraining order against them.\n
-• Follow up with your case number until the case reaches courts and the harasser gets a sentence. \n
+    <string name="static_guide_case3_instructions">- You can call Nazra for Feminist Studies for legal and psychological support: 01011910917. Nazra will send you a trained lawyer if available. \n
+- Make sure to state everything that happened as is. You have the right to give your statement in a separate space than the one the harasser is held in.\n
+- Write down the complaint number and follow up on the investigation.\n
+- If someone refused to help you at the police station, call the Ministry of Interior hotline: 138 and report the incident. \n
+- If you are injured and/or need a medical report, head to nearest hospital listed and ask to be directed to the emergency room, get checked out and ask for a medical report.\n
+- If you feel you need to talk to a professional, you can call Al-Nadeem Institute for psychological support: 01006662404 \n
+- You can call Nazra for Feminist Studies for psychological support: 01011910917 \n
+- In a couple of days, you should go to the general investigation office and you will tell your statement again with your lawyer.\n
+- Follow your lawyer’s instructions and don’t ever take back you statement. \n
+- If you are threatened or harassed by the family of the harasser, communicate with your lawyer and file a restraining order against them.\n
+- Follow up with your case number until the case reaches courts and the harasser gets a sentence. \n
 </string>
+    <string name="Nazra">01011910917</string>
+    <string name="Al_Nadeem">01006662404</string>
+    <string name="police">138</string>
 
 
     <string name="static_guide_case4">I have been sexually harassed and I have physical injuries, what should I do? </string>
-    <string name="static_guide_case4_instructions">• We will send a distress signal, we will look for nearby advocates and your trusted contacts will also be notified.\n
-• Meanwhile, follow our instructions.\n
-• If you are hurt and need medical attention please, head to the nearest hospital to get medical help and file a medical report.\n
-• You can always go to the nearest police station and file and official “Sexual Harassment” Complaint.\n
+    <string name="static_guide_case4_instructions">- We will send a distress signal, we will look for nearby advocates and your trusted contacts will also be notified.\n
+- Meanwhile, follow our instructions.\n
+- If you are hurt and need medical attention please, head to the nearest hospital to get medical help and file a medical report.\n
+- You can always go to the nearest police station and file and official “Sexual Harassment” Complaint.\n
 
 </string>
 
 
     <string name="static_guide_case5">I have been sexually harassed and I need to talk to someone, what should I do?</string>
-    <string name="static_guide_case5_instructions">• We will send a distress signal, we will look for nearby advocates and your trusted contacts will also be notified.\n
-• Meanwhile, follow our instructions.\n
-• If you are hurt and need medical attention please, head to the nearest hospital to get medical help and file a medical report.\n
-• You can always go to the nearest police station and file and official “Sexual Harassment” Complaint.\n
+    <string name="static_guide_case5_instructions">- We will send a distress signal, we will look for nearby advocates and your trusted contacts will also be notified.\n
+- Meanwhile, follow our instructions.\n
+- If you are hurt and need medical attention please, head to the nearest hospital to get medical help and file a medical report.\n
+- You can always go to the nearest police station and file and official “Sexual Harassment” Complaint.\n
 </string>
     <string name="call_trusted_contact">Call Trusted Contact</string>
 

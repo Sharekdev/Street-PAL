@@ -1,15 +1,20 @@
 package com.sharekeg.streetpal.homefragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import com.sharekeg.streetpal.Home.HomeActivity;
@@ -51,6 +56,27 @@ public class GuideTab extends Fragment {
         mviewpager=(ViewPager)guideTabView.findViewById(R.id.vpPager);
         adapter=new viewPagerAdapter(getContext());
         mviewpager.setAdapter(adapter);
+//        TextView instruct= (TextView) guideTabView.findViewById(R.id.tvinsts);
+//        String text = instruct.getText().toString();
+//        int i1=text.indexOf("0");
+//        int i2=text.indexOf("7");
+//
+//        final String phone_no=text.substring(i1 , i2);
+//
+//        instruct.setMovementMethod(LinkMovementMethod.getInstance());
+//        instruct.setText(text, TextView.BufferType.SPANNABLE);
+//        Spannable mySpannable = (Spannable)instruct.getText();
+//        ClickableSpan myClickableSpan = new ClickableSpan() {
+//            @Override
+//            public void onClick(View widget) {
+//                Intent intent = new Intent(Intent.ACTION_CALL);
+//                intent.setData(Uri.parse("tel:"+phone_no));
+//                startActivity(intent); }
+//        };
+//        mySpannable.setSpan(myClickableSpan, i1, i2 + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+//        String Nazra=getActivity().getResources().getString(R.string.Nazra);
+//        String
 
 
 //        CircleIndicator indicator = (CircleIndicator) mviewpager.findViewById(R.id.indicator);

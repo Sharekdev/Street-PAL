@@ -15,19 +15,21 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <TextView
+            <com.sharekeg.streetpal.TextViewForEnglish
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:gravity="center_horizontal"
                 android:text="@string/Welcome"
+                android:textSize="@dimen/text_size"
                 android:textColor="@color/black"
                 android:textStyle="normal" />
 
-            <TextView
+            <com.sharekeg.streetpal.TextViewForEnglish
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textSize="@dimen/text_size"
                 android:gravity="center_horizontal"
                 android:text="@string/WelcomeText"
                 android:textColor="@color/border_home"
@@ -64,7 +66,7 @@
                     android:layout_toRightOf="@+id/imageView1"
                     android:text="@string/string1_card_item"
                     android:textColor="@color/black"
-                    android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
             </RelativeLayout>
@@ -100,7 +102,7 @@
                     android:layout_toRightOf="@+id/imageView2"
                     android:text="@string/string2_card_item"
                     android:textColor="@color/black"
-                    android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
             </RelativeLayout>
@@ -136,7 +138,7 @@
                     android:layout_toRightOf="@+id/imageView3"
                     android:text="@string/string3_card_item"
                     android:textColor="@color/black"
-                    android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
             </RelativeLayout>
@@ -172,7 +174,7 @@
                     android:layout_toRightOf="@+id/imageView4"
                     android:text="@string/string4_card_item"
                     android:textColor="@color/black"
-                    android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
             </RelativeLayout>
@@ -208,7 +210,7 @@
                     android:layout_toRightOf="@+id/imageView5"
                     android:text="@string/string5_card_item"
                     android:textColor="@color/black"
-                    android:textSize="13sp" />
+                android:textSize="@dimen/text_size" />
 
 
             </RelativeLayout>

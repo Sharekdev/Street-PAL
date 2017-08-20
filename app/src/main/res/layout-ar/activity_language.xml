@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
+            android:textSize="@dimen/text_size"
             android:background="@drawable/back_icon"
             android:textColor="@color/white"
             android:layout_centerVertical="true"
@@ -38,6 +39,7 @@
             android:gravity="center"
             android:text="@string/language"
             android:textAllCaps="true"
+            android:textSize="@dimen/text_size"
             android:textColor="@color/white" />
 
 
@@ -64,6 +66,7 @@
         android:layout_height="20dp"
         android:background="@color/white"
         android:gravity="right"
+        android:textSize="@dimen/text_size"
         android:layout_alignTop="@+id/image"
         android:layout_alignBottom="@+id/image"
         android:layout_toRightOf="@+id/image"
@@ -78,8 +81,7 @@
         android:text="@string/united_kingdom"
         android:textColor="@color/login_controls_hint"
         android:layout_marginRight="5dp"
-
-        android:textSize="13dp"/>
+        android:textSize="@dimen/text_size"/>
     <ImageView
         android:id="@+id/english1"
         android:layout_width="40dp"
@@ -105,6 +107,7 @@
         android:layout_width="fill_parent"
         android:layout_height="20dp"
         android:gravity="right"
+        android:textSize="@dimen/text_size"
         android:background="@color/white"
         android:layout_alignTop="@+id/image"
         android:layout_alignBottom="@+id/image"
@@ -121,7 +124,7 @@
         android:gravity="right"
         android:textColor="@color/login_controls_hint"
         android:layout_marginRight="5dp"
-        android:textSize="13dp"/>
+        android:textSize="@dimen/text_size"/>
 
     <ImageView
         android:id="@+id/arabic1"
