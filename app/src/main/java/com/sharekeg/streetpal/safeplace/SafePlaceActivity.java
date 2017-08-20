@@ -87,7 +87,7 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
     private boolean isRecording = false;
     private long timeDifference;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    private int PROXIMITY_RADIUS = 500;
+    private int PROXIMITY_RADIUS = 1000;
     private String Type;
     double closest_distance=0;
     private LatLng nearest_place,latLng;
