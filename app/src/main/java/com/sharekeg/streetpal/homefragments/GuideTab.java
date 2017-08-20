@@ -56,33 +56,6 @@ public class GuideTab extends Fragment {
         mviewpager=(ViewPager)guideTabView.findViewById(R.id.vpPager);
         adapter=new viewPagerAdapter(getContext());
         mviewpager.setAdapter(adapter);
-//        TextView instruct= (TextView) guideTabView.findViewById(R.id.tvinsts);
-//        String text = instruct.getText().toString();
-//        int i1=text.indexOf("0");
-//        int i2=text.indexOf("7");
-//
-//        final String phone_no=text.substring(i1 , i2);
-//
-//        instruct.setMovementMethod(LinkMovementMethod.getInstance());
-//        instruct.setText(text, TextView.BufferType.SPANNABLE);
-//        Spannable mySpannable = (Spannable)instruct.getText();
-//        ClickableSpan myClickableSpan = new ClickableSpan() {
-//            @Override
-//            public void onClick(View widget) {
-//                Intent intent = new Intent(Intent.ACTION_CALL);
-//                intent.setData(Uri.parse("tel:"+phone_no));
-//                startActivity(intent); }
-//        };
-//        mySpannable.setSpan(myClickableSpan, i1, i2 + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-//        String Nazra=getActivity().getResources().getString(R.string.Nazra);
-//        String
-
-
-//        CircleIndicator indicator = (CircleIndicator) mviewpager.findViewById(R.id.indicator);
-//        indicator.setViewPager(mviewpager);
-//        adapter.registerDataSetObserver(indicator.getDataSetObserver());
-        // Inflate the layout for this fragment
         return guideTabView;
     }
 
