@@ -28,7 +28,7 @@ public class EditTextForArabic extends EditText{
 
     public void init() {
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
-                "cocon-858df15efcbd1077e4131a6b1673af62.ttf");
+                "cocon-light.ttf");
         setTypeface(tf, 1);
 
     }

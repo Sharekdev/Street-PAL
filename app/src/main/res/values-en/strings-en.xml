@@ -218,6 +218,8 @@
 • If you are hurt and need medical attention please, head to the nearest hospital to get medical help and file a medical report.\n
 • You can always go to the nearest police station and file and official “Sexual Harassment” Complaint.\n
 </string>
+    <string name="call_trusted_contact">Call Trusted Contact</string>
+
     <!--____________________________ User guide ______________________-->
     <string name="user_guide_postive_button">Yes</string>
     <string name="user_guide_negative_button">No</string>

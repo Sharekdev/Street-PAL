@@ -246,4 +246,7 @@
     <string name="string3_card_item">تم التحرش بيا، وعملت محضر في قسم الشرطة، إيه الخطوة التالية؟</string>
     <string name="string4_card_item">تم التحرش بيا، وتمت إصابتي جسديًا، اعمل ايه؟</string>
     <string name="string5_card_item">تم التحرش بيا، وأحتاج الى الفضفضة ، أعمل إيه؟</string>
+
+    <string name="call_trusted_contact">Call Trusted Contact</string>
+
 </resources>

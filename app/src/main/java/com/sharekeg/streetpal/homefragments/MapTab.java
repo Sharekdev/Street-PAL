@@ -19,6 +19,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -340,5 +341,18 @@ public class MapTab extends Fragment implements GoogleApiClient.ConnectionCallba
 
             }
         });
+    }
+    public void sendLocationViaSMS(){
+        String message="http://maps.google.com/?q=<" + lat+">,<"+ lon +">";
+        String phoneNumber="01159139597";
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+            Toast.makeText(this.getActivity(), "Message Sent", Toast.LENGTH_LONG).show();
+        } catch (Exception ex) {
+            Toast.makeText(this.getActivity(),R.string.smthing_went_wrong,
+                    Toast.LENGTH_LONG).show();
+            ex.printStackTrace();
+        }
     }
 }
