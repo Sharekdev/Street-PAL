@@ -1,8 +1,10 @@
 package com.sharekeg.streetpal.homefragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -252,6 +254,12 @@ public class StreetPalGuide extends Fragment implements View.OnClickListener, On
             displayNewMessage(newChatBlock.getChatMessages());
         } else {
             Toast.makeText(getContext(), navigationTag, Toast.LENGTH_SHORT).show();
+
+            SharedPreferences navTagPref=this.getActivity().getSharedPreferences("Tag", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor=navTagPref.edit();
+            editor.putString("NavigationTag",navigationTag);
+            editor.commit();
+            startActivity(new Intent(getActivity(),SafePlaceActivity.class));
         }
 
     }

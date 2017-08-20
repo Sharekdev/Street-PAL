@@ -2,6 +2,7 @@ package com.sharekeg.streetpal.Androidversionapi;
 
 import com.sharekeg.streetpal.Settings.ChangePassword;
 import com.sharekeg.streetpal.safeplace.Guide;
+import com.sharekeg.streetpal.safeplace.nearbyplaceutil.Example;
 import com.sharekeg.streetpal.userinfoforeditingprofile.UsersInfoForEditingProfile;
 import com.sharekeg.streetpal.userinfoforlogin.CurrenLocation;
 import com.sharekeg.streetpal.userinfoforsignup.UsersInfoForSignUp;
@@ -21,6 +22,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 
 /**
@@ -64,6 +66,10 @@ public interface ApiInterface
     
     @POST("/me/pass")
     Call<ChangePassword> sendPassword(@Body ChangePassword data);
+
+    @GET("api/place/nearbysearch/json?sensor=true&key=AIzaSyCAP7GSRK1AEKokXs6nayfcIVl_I8fsGwI")
+    Call<Example> getNearbyPlaces(@Query("type") String type, @Query("location") String location, @Query("radius") int radius);
+
 
 
 

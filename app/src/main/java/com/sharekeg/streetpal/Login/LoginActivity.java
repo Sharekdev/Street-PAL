@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             loginProcessWithRetrofit(userName, password);
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage(String.valueOf(R.string.dialog_logging));
+            pDialog.setMessage(getText(R.string.dialog_logging));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();

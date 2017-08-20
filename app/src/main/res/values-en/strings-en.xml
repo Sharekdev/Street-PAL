@@ -220,6 +220,36 @@
 </string>
     <string name="call_trusted_contact">Call Trusted Contact</string>
 
+
+
+
+
+   <string name="string1_card_item">I don\'t know what to do</string>
+    <string name="string2_card_item">I am now at the police station, what should i do?</string>
+    <string name="string3_card_item">I filed a report at the police station, what  should i do?</string>
+    <string name="string4_card_item">I have physical injuries, what should i do?</string>
+    <string name="string5_card_item">I need to talk to someone, what should i do?</string>
+    <string name="ABOUT_STREET_PAL">ABOUT STREET PAL</string>
+    <string name="STREET_PAL"> Street Pal</string>
+    <string name="Ourpartners"> Our partners </string>
+    <string name="Guide"> - Guide to relevant entities for legal and psychological help.
+</string>
+    <string name="Navigation"> - Navigation to safe places, Police station and hospital.</string>
+    <string name="MainFeatures"> Main Features</string>
+    <string name="Smart"> - Smart guide -in steps- on what to do when subjected to or witness sexual harassment </string>
+    <string name="Building"> - Building awareness about sexual violence </string>
+    <string name="Effective"> - Effective guidance of sexual harassment victims towards proper conduct </string>
+    <string name="Objectives"> Our Objectives </string>
+    <string name="STREET_PAL_des">Street Pal A smart application platform aims at building a community of well-trained advocates who are able to help
+ spread awareness about sexual harassment and effectively take part in combating the crime through the current national legal framework
+by gathering all common practices and solutions in a smart and easy compact tool introducing a new comprehensive and interactive guide on how to
+combat sexual harassment using technology.
+</string>
+    <string name="About">About US</string>
+    <string name="fbhint">feedback</string>
+
+
+
     <!--____________________________ User guide ______________________-->
     <string name="user_guide_postive_button">Yes</string>
     <string name="user_guide_negative_button">No</string>

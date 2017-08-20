@@ -27,7 +27,7 @@ public class UserGuide {
             USER_IS_SAFE = 1001,
             TERMINATE_CHAT = -1;
     public static final String CALL_TRUSTED_CONTACT = "call_trusted_contact",
-            SAFE_PLACE = "Safe place", POLICE_STATION = "Police station", HOSPITAL = "Hospital", HEADING_TO_POLICE = "going_to_police", HEADING_TO_HOSPITAL = "going_to_hospital";
+            SAFE_PLACE = "Safe place", POLICE_STATION = "police", HOSPITAL = "hospital", HEADING_TO_POLICE = "going_to_police", HEADING_TO_HOSPITAL = "going_to_hospital";
     private OnUserStatusChangeListener listener;
     private ChatBlock chatBlock;
 
@@ -146,7 +146,7 @@ public class UserGuide {
                 listener.OnUserStatusChange(SEND_STRESS_SIGNAL);
                 break;
             case USER_HAS_BEEN_HARASSED:
-                //go to gide for now
+                //go to guide for now
 
                 break;
 

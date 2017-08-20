@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 
@@ -27,6 +28,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +56,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.sharekeg.streetpal.Androidversionapi.ApiInterface;
 import com.sharekeg.streetpal.Home.HomeActivity;
 import com.sharekeg.streetpal.R;
+import com.sharekeg.streetpal.safeplace.nearbyplaceutil.Example;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import retrofit2.Call;
@@ -74,8 +78,6 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
     private Retrofit retrofit;
     private RecyclerView recylcerView;
     private Button btnCallVolunteer, btnMarkSafe, btnNavigate;
-    private ProgressDialog progressDialoge;
-    private ProgressDialog progressDialog;
     private Chronometer mChronometer;
     private static MediaRecorder mediaRecorder;
     private static MediaPlayer mediaPlayer;
@@ -85,6 +87,13 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
     private boolean isRecording = false;
     private long timeDifference;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+    private int PROXIMITY_RADIUS = 500;
+    private String Type;
+    double closest_distance=0;
+    private LatLng nearest_place,latLng;
+    private MarkerOptions markerOptions;
+    private String placeName;
+    private String vicinity;
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -116,10 +125,11 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
         mapFragment.getMapAsync(this);
 
 
-        progressDialoge = new ProgressDialog(this);
-        progressDialoge.setMessage(getApplicationContext().getResources().getString(R.string.txtLoading));
-        progressDialoge.setCancelable(false);
-        progressDialoge.show();
+
+        SharedPreferences navTagPref=getSharedPreferences("Tag",MODE_PRIVATE);
+        Type=navTagPref.getString("NavigationTag","");
+
+
 
         mChronometer = (Chronometer) findViewById(R.id.chrono);
         //recordButton = (Button) findViewById(R.id.recordButton);
@@ -137,6 +147,8 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
 
             }
         });
+
+
         ivPause = (ImageView) findViewById(R.id.imPause);
         ivPause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,34 +221,34 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
 //        });
 
 
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-
-        myAPI = retrofit.create(ApiInterface.class);
-        myCall = myAPI.getGuide();
-        myCall.enqueue(new Callback<List<Guide>>() {
-            @Override
-            public void onResponse(Call<List<Guide>> call, Response<List<Guide>> response) {
-                progressDialoge.dismiss();
-                List<Guide> myResponse = response.body();
-                GuideAdapter adapter = new GuideAdapter(SafePlaceActivity.this, myResponse);
-
-                recylcerView.setAdapter(adapter);
-
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Guide>> call, Throwable t) {
-                progressDialoge.dismiss();
-
-                Toast.makeText(SafePlaceActivity.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        retrofit = new Retrofit.Builder()
+//                .baseUrl("https://jsonplaceholder.typicode.com")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//
+//        myAPI = retrofit.create(ApiInterface.class);
+//        myCall = myAPI.getGuide();
+//        myCall.enqueue(new Callback<List<Guide>>() {
+//            @Override
+//            public void onResponse(Call<List<Guide>> call, Response<List<Guide>> response) {
+//                progressDialoge.dismiss();
+//                List<Guide> myResponse = response.body();
+//                GuideAdapter adapter = new GuideAdapter(SafePlaceActivity.this, myResponse);
+//
+//                recylcerView.setAdapter(adapter);
+//
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Guide>> call, Throwable t) {
+//                progressDialoge.dismiss();
+//
+//                Toast.makeText(SafePlaceActivity.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
 
     }
@@ -361,6 +373,8 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
         if (mLastLocation != null) {
             updateUserLocation();
         }
+        build_retrofit_and_get_response(Type, mLastLocation.getLatitude(), mLastLocation.getLongitude());
+
         createLocationRequest();
     }
 
@@ -375,6 +389,8 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
         } else {
             userMarker.setPosition(userLatLng);
         }
+        build_retrofit_and_get_response(Type, mLastLocation.getLatitude(), mLastLocation.getLongitude());
+
     }
 
     @Override
@@ -419,7 +435,9 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
                         }
                         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, SafePlaceActivity.this);
 
-                        Toast.makeText(SafePlaceActivity.this, R.string.txtSuccess, Toast.LENGTH_SHORT).show();
+                        build_retrofit_and_get_response(Type, mLastLocation.getLatitude(), mLastLocation.getLongitude());
+
+//                        Toast.makeText(SafePlaceActivity.this, R.string.txtSuccess, Toast.LENGTH_SHORT).show();
                         break;
                     case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
                         // Location settings are not satisfied, but this can be fixed
@@ -574,6 +592,142 @@ public class SafePlaceActivity extends FragmentActivity implements OnMapReadyCal
     public void onBackPressed() {
         // do nothing.
     }
+
+
+    private void build_retrofit_and_get_response(String schoolText, final double lat, final double lon) {
+
+        Log.i("latlng", lat + " , " + lon);
+
+        String url = "https://maps.googleapis.com/maps/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ApiInterface service = retrofit.create(ApiInterface.class);
+
+        Call<Example> call = service.getNearbyPlaces(schoolText, lat + "," + lon, PROXIMITY_RADIUS);
+        Log.i("latlng", lat + " , " + lon);
+        Log.i("Type ", schoolText);
+
+
+        call.enqueue(new Callback<Example>() {
+
+            @Override
+            public void onResponse(Call<Example> call, Response<Example> response) {
+
+
+                try {
+
+
+                    // mMap.clear();
+                    // This loop will go through all the results and add marker on each location.
+                    for (int i = 0; i < response.body().getResults().size(); i++) {
+
+
+                        Log.d(" lat and long", response.body().getResults().get(i).getGeometry().getLocation().getLat() + " , " + response.body().getResults().get(i).getGeometry().getLocation().getLng());
+                        Double lat = response.body().getResults().get(i).getGeometry().getLocation().getLat();
+                        Double lng = response.body().getResults().get(i).getGeometry().getLocation().getLng();
+                        placeName = response.body().getResults().get(i).getName();
+                        vicinity = response.body().getResults().get(i).getVicinity();
+                        markerOptions = new MarkerOptions();
+                        latLng = new LatLng(lat, lng);
+
+                        LatLng userLatLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+                        double distance= CalculationByDistance(userLatLng,latLng);
+
+                        if(i==0){
+                            closest_distance=distance;
+                            nearest_place=latLng;
+                        }
+                        else if(distance<=closest_distance){
+                            closest_distance=distance;
+                            nearest_place=latLng;
+                        }
+
+//                        // Position of Marker on Map
+//                        markerOptions.position(latLng);
+//                        // Adding Title to the Marker
+//                        markerOptions.title(placeName + " : " + vicinity);
+//                        // Adding Marker to the Camera.
+//                        Marker m = mMap.addMarker(markerOptions);
+//                        // Adding colour to the marker
+//                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+//                        // move map camera
+//                        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+//                        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+
+
+//                LatLng latLng = new LatLng(lat, lon);
+//                // Position of Marker on Map
+//                // Adding Title to the Marker
+//                if (userMarker == null) {
+//
+//
+//                    userMarker = mMap.addMarker(new MarkerOptions()
+//                            .position(latLng).title("test"));
+//                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+//                } else {
+//                    userMarker.setPosition(latLng);
+//                    Log.i("latLng", latLng.toString());
+//
+//                }
+                    }
+
+                    markerOptions.position(nearest_place);
+                    markerOptions.title(placeName + " : " + vicinity);
+                    mMap.addMarker(markerOptions);
+//                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    Log.i("nearestPlace",nearest_place.toString());
+                    showSearchedPlaceOnMap(nearest_place);
+
+
+                } catch (Exception e) {
+                    Log.d("onResponse", "There is an error");
+                    e.printStackTrace();
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<Example> call, Throwable t) {
+
+                Toast.makeText(SafePlaceActivity.this, "Check internet connection", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+
+    }
+    public double CalculationByDistance(LatLng StartP, LatLng EndP) {
+        int Radius = 6371;// radius of earth in Km
+        double lat1 = StartP.latitude;
+        double lat2 = EndP.latitude;
+        double lon1 = StartP.longitude;
+        double lon2 = EndP.longitude;
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+                + Math.cos(Math.toRadians(lat1))
+                * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2)
+                * Math.sin(dLon / 2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        double valueResult = Radius * c;
+        double km = valueResult / 1;
+        DecimalFormat newFormat = new DecimalFormat("####");
+        int kmInDec = Integer.valueOf(newFormat.format(km));
+        double meter = valueResult % 1000;
+        int meterInDec = Integer.valueOf(newFormat.format(meter));
+        Log.i("Radius Value", "" + valueResult + "   KM  " + kmInDec
+                + " Meter   " + meterInDec);
+
+        return Radius * c;
+    }
+
+
+
 
 }
 
